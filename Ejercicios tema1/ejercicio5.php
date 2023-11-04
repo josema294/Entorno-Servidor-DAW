@@ -30,9 +30,6 @@ for ($i=0; $i < 10 ; $i++) {
   </tr>",$rand,pow($rand,2));
 }
 
-
-
-
 //Cerramos la tabla
 print "</tbody></table>";
 
