@@ -1,4 +1,4 @@
-/* Estilos para la tabla */
+/* Estilos para la tabla ejercicio 2.2 */
 .tabla-css {
     width: 100%;
     border-collapse: collapse;
@@ -31,6 +31,6 @@
 }
 .titulotabla {
     text-align: center;
-    color: #003a79;
+    color: #007bff;
     margin-bottom: 20px; /* Espaciado inferior para separar el título de la tabla */
 }
