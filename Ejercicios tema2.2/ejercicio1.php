@@ -45,7 +45,7 @@
 
     //Encabezado
     print(' <div class="titulotabla">
-    <h1>Tabla de Números, Cuadrados y Cubos</h1>');
+    <h1>Tabla de Números, Cuadrados y Cubos</h1></div>');
 
     tabla($numero, $cuadrado, $cubo);
 
