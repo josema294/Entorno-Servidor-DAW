@@ -1,0 +1,36 @@
+/* Estilos para la tabla */
+.tabla-css {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+}
+
+.tabla-css th,
+.tabla-css td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Estilos para las filas impares */
+.tabla-css tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+/* Estilos para las filas pares */
+.tabla-css tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+/* Estilos para el encabezado de la tabla */
+.tabla-css th {
+    background-color: #4CAF50;
+    color: white;
+}
+.titulotabla {
+    text-align: center;
+    color: #001b39;
+    margin-bottom: 20px; /* Espaciado inferior para separar el título de la tabla */
+}

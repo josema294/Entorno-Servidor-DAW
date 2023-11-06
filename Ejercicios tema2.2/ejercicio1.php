@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 1 U2.2</title>
 
-    
+    <link rel="stylesheet" href="style/tema2.2.css">
 
 </head>
 
@@ -42,6 +42,11 @@
         $cubo[$i] = pow($numero[$i], 3);
     }
 
+
+    //Encabezado
+    print(' <div class="titulotabla">
+    <h1>Tabla de Números, Cuadrados y Cubos</h1>');
+
     tabla($numero, $cuadrado, $cubo);
 
 
@@ -49,7 +54,7 @@
     function tabla($numero, $cuadrado, $cubo)
     {
 
-        print('<table class="tablacss" border="1">
+        print('<table class="tabla-css" border="1">
         <thead>
             <th>Numero</th>
             <th>Cuadrado</th>
