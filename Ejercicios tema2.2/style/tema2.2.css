@@ -34,3 +34,17 @@
     color: #007bff;
     margin-bottom: 20px; /* Espaciado inferior para separar el título de la tabla */
 }
+
+
+/* Para el ejercicio de pares e impares */
+
+.par {
+    color: blue;
+    
+}
+
+.impar {
+    color: red;
+    font-weight: bold; /* Negrita para números impares */
+    text-decoration: underline; /* Subrayado para números impares */
+}
