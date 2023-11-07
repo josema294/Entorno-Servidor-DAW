@@ -52,29 +52,29 @@ else { $ganador = " JUGADOR 2"; }
 
 printf("<div><h1> EL GANADOR DEL JUEGO HA SIDO EL %s </h1></div>",$ganador);
 
-print(" <button> <a href=\"http://localhost/Entorno-servidor-daw/Ejercicios%20tema1/ejercicio6.php\"> Recarga el juego</button>");
+print(" <button> <a href=\"http://localhost/Entorno-servidor-daw/Ejercicios%20tema2.1/ejercicio6.php\"> Recarga el juego</button>");
 
 //Funcion para determinar la tirada de dados
 function tiradaDados($random) : void {
 
     switch ($random) {
         case 1:
-            print(" <img src=\"/Entorno-Servidor-DAW/Ejercicios tema1/resources/1.jpg\" alt=\"Dado de valor 1\">   ");
+            print(" <img src=\"/Entorno-Servidor-DAW/Ejercicios tema2.1/resources/1.jpg\" alt=\"Dado de valor 1\">   ");
             break;
         case 2:
-            print(" <img src=\"/Entorno-Servidor-DAW/Ejercicios tema1/resources/2.jpg\" alt=\"Dado de valor 2\">   ");
+            print(" <img src=\"/Entorno-Servidor-DAW/Ejercicios tema2.1/resources/2.jpg\" alt=\"Dado de valor 2\">   ");
             break;
         case 3:
-            print(" <img src=\"/Entorno-Servidor-DAW/Ejercicios tema1/resources/3.jpg\" alt=\"Dado de valor 3\">   ");
+            print(" <img src=\"/Entorno-Servidor-DAW/Ejercicios tema2.1/resources/3.jpg\" alt=\"Dado de valor 3\">   ");
             break;
         case 4:
-            print(" <img src=\"/Entorno-Servidor-DAW/Ejercicios tema1/resources/4.jpg\" alt=\"Dado de valor 4\">   ");
+            print(" <img src=\"/Entorno-Servidor-DAW/Ejercicios tema2.1/resources/4.jpg\" alt=\"Dado de valor 4\">   ");
             break;
         case 5:
-            print(" <img src=\"/Entorno-Servidor-DAW/Ejercicios tema1/resources/5.jpg\" alt=\"Dado de valor 5\">   ");
+            print(" <img src=\"/Entorno-Servidor-DAW/Ejercicios tema2.1/resources/5.jpg\" alt=\"Dado de valor 5\">   ");
             break;
         case 6:
-            print(" <img src=\"/Entorno-Servidor-DAW/Ejercicios tema1/resources/6.jpg\" alt=\"Dado de valor 6\">   ");
+            print(" <img src=\"/Entorno-Servidor-DAW/Ejercicios tema2.1/resources/6.jpg\" alt=\"Dado de valor 6\">   ");
             break;
         
         default:

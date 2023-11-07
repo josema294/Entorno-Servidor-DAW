@@ -21,30 +21,22 @@ $posmax = 0; //Int con del dado mas alto
 for ($i=0; $i <6 ; $i++) { 
     
     $resultado[$i] = rand(1,6);
-
-    if($resultado[$i]>$maxnum) {
-        $maxnum = $resultado[$i];
-        $posmax = $i+1;
-        $posicionmaxima = $posmax;
-
-    }
-
-    if ($resultado[$i]==$maxnum){
-
-        $posicionmaxima = 
-
-        
-    }
-
-    
-
 }
 
-echo("Valor maximo: " . $maxnum . " En la tirada: " .  $posmax);
+$maxnum = max($resultado);
+$posmax = array_search($maxnum,$resultado)+1; //Sumo 1 para traducir la posicion 0 del array al significado de dado 1.
 
 
 
+print ('<h1> Tirada de 5 dados, Cual sera el numero mayor ?? </h1>');
 
+
+for ($i=0; $i < 6 ; $i++) { 
+    
+    printf('<img src="resources/%d.jpg" alt=\"Dado de valor 1\">',$resultado[$i]);
+}
+
+printf ('<h3> Como podemos comprobar, el numero mas alto ha sido el %d que sale por primera vez en la tirada %d </h3>',$maxnum,$posmax);
 
 ?>
     
