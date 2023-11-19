@@ -1,0 +1,20 @@
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f0f0;
+        text-align: center;
+        padding: 20px;
+    }
+
+    h1, h3 {
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .rectangulo {
+        font-family: 'Courier New', monospace; /* Usa una fuente monoespaciada para igualar el ancho de cada carácter */
+        line-height: 1.2em; /* Ajusta el espaciado vertical entre líneas */
+        letter-spacing: 0.6em; /* Ajusta el espaciado horizontal entre caracteres */
+        white-space: pre; /* Mantiene los espacios en blanco tal como están */
+    }
+

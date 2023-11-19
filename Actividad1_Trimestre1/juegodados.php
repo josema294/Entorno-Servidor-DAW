@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Actividad Evaluable Ejercicio 2</title>
-  <link rel="stylesheet" href="../Actividad1_Trimestre1/resources/css/style.css">
+  <link rel="stylesheet" href="../Actividad1_Trimestre1/resources/css/styleEjercicio2.css">
 
 </head>
 

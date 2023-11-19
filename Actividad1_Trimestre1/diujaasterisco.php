@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Actividad1_Trimestre1/resources/css/styleEjercicio1.css">
     <title>Actividad Evaluable Ejercicio 1</title>
 
 </head>
@@ -28,16 +29,18 @@
     //Titulo
     print("<h1>Ejercicio rectangulo aleatorio<h1>");
     print("<h3> El rectangulo es de: {$dimensiones['ancho']} x {$dimensiones['alto']}</h3>");
-
+    print('</br>');
+    print('<div class="rectangulo">');
     //Dibujamos rectangulo
     for ($i = 0; $i < $dimensiones['alto']; $i++) {
 
         for ($j = 0; $j < $dimensiones['ancho']; $j++) {
             print("*");
         }
-
-        echo ('<br>');
+        print('</br>');
+        
     }
+    print('</div');
 
     //Recibe alto y ancho maximo para generar un rectangulo con dimensiones aleatorias entre los valores proporcionados
     function dimensioniza($maxAlto, $maxAncho, $minAlto, $minAncho)

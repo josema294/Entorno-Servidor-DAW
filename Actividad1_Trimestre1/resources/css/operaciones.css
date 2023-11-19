@@ -1,0 +1,44 @@
+body {
+    margin-top: 80px;
+    font-family: sans-serif;
+    font-size: 16px;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  form {
+    margin: 0 auto;
+    width: 300px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .resultado {
+    margin-top: 20px;
+  }
+  
+  .resultado h2 {
+    font-size: 20px;
+  }
+  
+  .resultado p {
+    font-size: 16px;
+  }
+  .resultado-numero {
+    font-size: 180px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
