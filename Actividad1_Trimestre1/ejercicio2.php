@@ -47,15 +47,15 @@ las reglas del juego y mostrará el resultado. -->
     print("<img src=\"../Actividad1_Trimestre1/resources/imgs/{$resultadoPlayer1[$i]}.jpg\">");
   }
 
- 
+
 
   print('<div><h3> El jugador 2 ha obtenido con su tirada: </h3>');
   for ($i = 0; $i < 5; $i++) {
     print("<img src=\"../Actividad1_Trimestre1/resources/imgs/{$resultadoPlayer2[$i]}.jpg\">");
   }
 
-  $rondasGanadasJ1 =0;
-  $rondasGanadasJ2 =0;
+  $rondasGanadasJ1 = 0;
+  $rondasGanadasJ2 = 0;
 
   print('</br>');
   print('<table border="1">
@@ -68,10 +68,10 @@ las reglas del juego y mostrará el resultado. -->
   </thead>
   <tbody>');
 
-  for ($i=0; $i <5 ; $i++) { 
+  for ($i = 0; $i < 5; $i++) {
     print(" <tr>
     <td>
-        ". $i+1 ."
+        " . $i + 1 . "
     </td>
     <td>
        " . $resultadoPlayer1[$i] . "
@@ -80,31 +80,27 @@ las reglas del juego y mostrará el resultado. -->
     <td>
     " . $resultadoPlayer2[$i] . "
     </td>
-
     <td>
+
+    " . rondaGanda($resultadoPlayer1, $resultadoPlayer2, $i) . "
         
     </td>
-</tr>
+</tr>");
+  }
 
-    
-    "); 
-  }  
+  function rondaGanda($resultadoPlayer1, $resultadoPlayer2, $ronda)
+  {
 
-  // for ($i=0; $i < 5 ; $i++) { 
-  //   if($resultadoPlayer1[$i]>$resultadoPlayer2[$i]){
+    if ($resultadoPlayer1[$ronda] > $resultadoPlayer2[$ronda]) {
 
-  //     print("<div> La ronda" . ($i+1) . " Ha sido ganada por el Jugador 1 </div>");
-  //     $rondasGanadasJ1++;
-      
-  //   }else if ($resultadoPlayer1[$i]==$resultadoPlayer2[$i]) {
+      return "Jugador 1";
+    } else if ($resultadoPlayer1[$ronda] == $resultadoPlayer2[$ronda]) {
 
-  //     print("<div> Se ha producido un empate ningun jugador gana esta ronda </div>");
-
-  //   }else {
-  //     print("<div> La ronda" . ($i+1) . " Ha sido ganada por el Jugador 2 </div>");
-  //     $rondasGanadasJ2++;
-  //    }}
- 
+      return "empate";
+    } else {
+      return "Jugador 2";
+    }
+  }
 
 
 
