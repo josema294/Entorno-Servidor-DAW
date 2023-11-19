@@ -47,24 +47,66 @@ las reglas del juego y mostrará el resultado. -->
     print("<img src=\"../Actividad1_Trimestre1/resources/imgs/{$resultadoPlayer1[$i]}.jpg\">");
   }
 
-  //var_dump($resultadoPlayer1);
-  $sumaJugador1 = array_sum($resultadoPlayer1);
-  print("</div><h3> Esto hace un total de: {$sumaJugador1} </h3>");
+ 
 
   print('<div><h3> El jugador 2 ha obtenido con su tirada: </h3>');
   for ($i = 0; $i < 5; $i++) {
     print("<img src=\"../Actividad1_Trimestre1/resources/imgs/{$resultadoPlayer2[$i]}.jpg\">");
   }
-  $sumaJugador2 = array_sum($resultadoPlayer2);
-  print("</div><h3> Esto hace un total de: {$sumaJugador2} </h3>");
 
-  if ($sumaJugador1 > $sumaJugador2) {
-    print("<h2> Enhorabuena al jugador 1, ha salido victorioso con una puntuacion mayor </h3>");
-  } elseif ($sumaJugador1 == $sumaJugador2) {
-    print("<h2> Sorprendentemente se trata de un empate, no hay ganador. </h3>");
-  } else {
-    print("<h2> Enhorabuena al jugador 2, ha salido victorioso con una puntuacion mayor </h3>");
-  }
+  $rondasGanadasJ1 =0;
+  $rondasGanadasJ2 =0;
+
+  print('</br>');
+  print('<table border="1">
+  <thead>
+      <th>Jugada </th>
+      <th>Resultado J1 </th>
+      <th>Resultado J2 </th>
+      <th>Ganador?
+      </th>
+  </thead>
+  <tbody>');
+
+  for ($i=0; $i <5 ; $i++) { 
+    print(" <tr>
+    <td>
+        ". $i+1 ."
+    </td>
+    <td>
+       " . $resultadoPlayer1[$i] . "
+    </td>
+
+    <td>
+    " . $resultadoPlayer2[$i] . "
+    </td>
+
+    <td>
+        
+    </td>
+</tr>
+
+    
+    "); 
+  }  
+
+  // for ($i=0; $i < 5 ; $i++) { 
+  //   if($resultadoPlayer1[$i]>$resultadoPlayer2[$i]){
+
+  //     print("<div> La ronda" . ($i+1) . " Ha sido ganada por el Jugador 1 </div>");
+  //     $rondasGanadasJ1++;
+      
+  //   }else if ($resultadoPlayer1[$i]==$resultadoPlayer2[$i]) {
+
+  //     print("<div> Se ha producido un empate ningun jugador gana esta ronda </div>");
+
+  //   }else {
+  //     print("<div> La ronda" . ($i+1) . " Ha sido ganada por el Jugador 2 </div>");
+  //     $rondasGanadasJ2++;
+  //    }}
+ 
+
+
 
   //Recargar el juego
   print('<form action="" method="post">
