@@ -21,22 +21,13 @@ las reglas del juego y mostrará el resultado. -->
 
   $resultadoPlayer1 = tiradaDados();
   $resultadoPlayer2 = tiradaDados();
+  $contadorganadas1 = 0;
+  $contadorganadas2 =0;
 
   //print_r($resultadoPlayer1);
   //print_r($resultadoPlayer2);
 
-  function tiradaDados(): array
-  {
 
-    $playerResult = [];
-
-    for ($i = 0; $i < 5; $i++) {
-
-      $playerResult[$i] = rand(1, 6);
-    }
-
-    return $playerResult;
-  }
 
   //Titulo del juego
   print('<h1> Juedo de dados </h1>');
@@ -45,26 +36,22 @@ las reglas del juego y mostrará el resultado. -->
   print('<div><h3> El jugador 1 ha obtenido con su tirada: </h3>');
   for ($i = 0; $i < 5; $i++) {
     print("<img src=\"../Actividad1_Trimestre1/resources/imgs/{$resultadoPlayer1[$i]}.jpg\">");
-  }
-
+  } print('</div>');
+ 
 
 
   print('<div><h3> El jugador 2 ha obtenido con su tirada: </h3>');
   for ($i = 0; $i < 5; $i++) {
     print("<img src=\"../Actividad1_Trimestre1/resources/imgs/{$resultadoPlayer2[$i]}.jpg\">");
-  }
-
-  $rondasGanadasJ1 = 0;
-  $rondasGanadasJ2 = 0;
+  } print('</div>');
 
   print('</br>');
-  print('<table border="1">
+  print('<table>
   <thead>
       <th>Jugada </th>
       <th>Resultado J1 </th>
       <th>Resultado J2 </th>
-      <th>Ganador?
-      </th>
+      <th>Ganador </th>
   </thead>
   <tbody>');
 
@@ -82,32 +69,61 @@ las reglas del juego y mostrará el resultado. -->
     </td>
     <td>
 
-    " . rondaGanda($resultadoPlayer1, $resultadoPlayer2, $i) . "
+    " . rondaGanada($resultadoPlayer1,  $resultadoPlayer2, $i) . "
         
     </td>
 </tr>");
   }
+  print("</tbody)</table>");
 
-  function rondaGanda($resultadoPlayer1, $resultadoPlayer2, $ronda)
-  {
+  //Ganador por rondas
 
-    if ($resultadoPlayer1[$ronda] > $resultadoPlayer2[$ronda]) {
-
-      return "Jugador 1";
-    } else if ($resultadoPlayer1[$ronda] == $resultadoPlayer2[$ronda]) {
-
-      return "empate";
-    } else {
-      return "Jugador 2";
-    }
-  }
-
-
+  if ($contadorganadas1>$contadorganadas2) {
+    printf('<div class="ganador"><h1> El ganador global del juego ha sido el jugador 1 con %d rondas ganadas</h1>',$contadorganadas1);
+  }else{printf('<div class="ganador"><h1> El ganador global del juego ha sido el jugador 2 con %d rondas ganadas</h1>',$contadorganadas2); }
 
   //Recargar el juego
   print('<form action="" method="post">
   <button class="button-74" type="submit">Recargar Página</button>
   </form>');
+
+
+  //Funciones pra el programa
+
+  function tiradaDados(): array
+  {
+
+    $playerResult = [];
+
+    for ($i = 0; $i < 5; $i++) {
+
+      $playerResult[$i] = rand(1, 6);
+    }
+
+    return $playerResult;
+  }
+
+  function rondaGanada($resultadoPlayer1, $resultadoPlayer2, $ronda)
+  {
+
+    if ($resultadoPlayer1[$ronda] > $resultadoPlayer2[$ronda]) {
+      global $contadorganadas1;
+      $contadorganadas1++;
+      return "Jugador 1";
+    } else if ($resultadoPlayer1[$ronda] == $resultadoPlayer2[$ronda]) {
+
+      return "empate";
+    } else {
+      global $contadorganadas2;
+      $contadorganadas2++;
+      return "Jugador 2";
+    }
+  }
+
+  function contadorGanadas ( $resultadoPlayer1,$resultadoPlayer2){
+    $resultadoPlayer1 = 4;
+    return $resultadoPlayer1;
+  }
 
   ?>
 
