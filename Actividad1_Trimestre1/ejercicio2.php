@@ -80,7 +80,9 @@ las reglas del juego y mostrará el resultado. -->
 
   if ($contadorganadas1>$contadorganadas2) {
     printf('<div class="ganador"><h1> El ganador global del juego ha sido el jugador 1 con %d rondas ganadas</h1>',$contadorganadas1);
-  }else{printf('<div class="ganador"><h1> El ganador global del juego ha sido el jugador 2 con %d rondas ganadas</h1>',$contadorganadas2); }
+  }elseif($contadorganadas1<$contadorganadas2){
+    printf('<div class="ganador"><h1> El ganador global del juego ha sido el jugador 2 con %d rondas ganadas</h1>',$contadorganadas2);
+  }else{printf('<div class="ganador"><h1> Ambos jugadores tienen el mismo numero de rondas ganadas, %d, Habria un empate.</h1>',$contadorganadas2); }
 
   //Recargar el juego
   print('<form action="" method="post">
