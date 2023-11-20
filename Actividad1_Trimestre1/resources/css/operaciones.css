@@ -41,4 +41,11 @@ body {
     font-weight: bold;
     text-align: center;
   }
+
+  .alerta{
+    text-align: center;
+    font-size: 30px;
+    color: indianred;
+    
+  }
   

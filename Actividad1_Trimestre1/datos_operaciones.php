@@ -14,19 +14,36 @@
 //Si POST
 if($_SERVER["REQUEST_METHOD"]=="POST"){
 
+
+
     $rutaVuelta= $_SERVER['HTTP_REFERER'];
-    $primerNum = $_POST['num1'];
-    $segundNum =$_POST['num2'];
-    $operacion = $_POST['operacion'];
+    
+    if (is_numeric($_POST['num1']) ) {
+       
+        $primerNum = $_POST['num1'];
+    }
+   if (is_numeric($_POST['num2']) ) {
+        
+        $segundNum =$_POST['num2'];
+   }
+   
+    if(isset($primerNum) && isset($segundNum) && isset($_POST['operacion']) ) {
+        $operacion = $_POST['operacion'];
+        $resultado = opera($primerNum,$segundNum,$operacion);
 
-    $resultado = opera($primerNum,$segundNum,$operacion);
+        printf('<p class="resultado-numero">' . $resultado . '</p>');
+        print("<form action=\"{$rutaVuelta}\" method=\"get\">
+        <input type=\"submit\" value=\"Ir Atras\">
+        </form>");}
 
-    printf('<p class="resultado-numero">' . number_format($resultado,3) . '</p>');
-    print("<form action=\"{$rutaVuelta}\" method=\"get\">
-    <input type=\"submit\" value=\"Ir Atras\">
-    </form>");
+    else {
+        print('<h2 class="alerta"> Datos imcompletos o incorrectos, redirigase a la pagina anterior</h2>
+        <div class="alerta"> <a href="../Actividad1_Trimestre1/operaciones.php"> volver</a></div>');
+    }
+    
+}
 
-
+elseif($_SERVER["REQUEST_METHOD"]=="GET") {
 
     
 }
@@ -36,13 +53,26 @@ function opera($num1,$num2,$oper){
 
     switch ($oper) {
         case 'sum':
-            return $num1+$num2;
+            $retorno = $num1+$num2;
+            if (is_int( $retorno)) {
+                return  $retorno;
+            }else { return number_format($retorno,3); }
+
             case 'resta':
-            return $num1-$num2;
+                $retorno = $num1-$num2;
+                if (is_int( $retorno)) {
+                    return  $retorno;
+                }else { return number_format($retorno,3); }
         case 'multi':
-            return $num1*$num2;
+            $retorno = $num1*$num2;
+            if (is_int( $retorno)) {
+                return  $retorno;
+            }else { return number_format($retorno,3); }
         case 'divid':
-            return $num1/$num2;
+            $retorno = $num1/$num2;
+            if (is_int( $retorno)) {
+                return  $retorno;
+            }else { return number_format($retorno,3); }
         default:
             return"fallo en el servidor";
     }
