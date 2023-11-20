@@ -44,10 +44,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 }
 
 elseif($_SERVER["REQUEST_METHOD"]=="GET") {
-
-    
+    print('<h2 class="alerta"> Datos imcompletos o incorrectos, redirigase a la pagina anterior</h2>
+    <div class="alerta"> <a href="../Actividad1_Trimestre1/operaciones.php"> volver</a></div>');
 }
-
 
 function opera($num1,$num2,$oper){
 
@@ -78,9 +77,6 @@ function opera($num1,$num2,$oper){
     }
 }
 
-
 ?>
-
-    
 </body>
 </html>

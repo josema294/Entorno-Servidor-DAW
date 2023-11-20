@@ -17,13 +17,13 @@
     </div>
     <div>
         <label for="num2">Introduzca el segundo número:</label>
-        <input type="numero" id="num2" name="num2" >
+        <input type="numero" id="num2" name="num2" required>
     </div>
     <div>
         <p>Seleccione la operación:</p>
         
         <p><label for="sum">Suma</label>
-        <input type="radio" id="sum" name="operacion" value="sum" ></p>
+        <input type="radio" id="sum" name="operacion" value="sum" required></p>
 
         <label for="resta">Resta</label></p>
         <p><input type="radio" id="resta" name="operacion" value="resta">
