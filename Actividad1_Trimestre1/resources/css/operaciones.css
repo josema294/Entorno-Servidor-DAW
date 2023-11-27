@@ -42,6 +42,13 @@ body {
     text-align: center;
   }
 
+  .resultado-enunciado {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    color: darkblue;
+  }
+
   .alerta{
     text-align: center;
     font-size: 30px;

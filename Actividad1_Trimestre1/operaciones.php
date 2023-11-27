@@ -23,16 +23,16 @@
         <p>Seleccione la operación:</p>
         
         <p><label for="sum">Suma</label>
-        <input type="radio" id="sum" name="operacion" value="sum" required></p>
+        <input type="radio" id="sum" name="operacion" value="la suma" required></p>
 
         <label for="resta">Resta</label></p>
-        <p><input type="radio" id="resta" name="operacion" value="resta">
+        <p><input type="radio" id="resta" name="operacion" value="la resta">
         
         <label for="multi">multiplica</label></p>
-        <p><input type="radio" id="multi" name="operacion" value="multi">
+        <p><input type="radio" id="multi" name="operacion" value="la multiplicacion">
        
         <label for="divid">Cociente</label></p>
-        <p><input type="radio" id="divid" name="operacion" value="divid">
+        <p><input type="radio" id="divid" name="operacion" value="el cociente">
        
 
     </div>

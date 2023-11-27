@@ -31,7 +31,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $operacion = $_POST['operacion'];
         $resultado = opera($primerNum,$segundNum,$operacion);
 
-        printf('<p class="resultado-numero">' . $resultado . '</p>');
+        printf("<p class=\"resultado-enunciado\"> El resultado de realizar $operacion de los números $primerNum y $segundNum es:</p>");
+        printf("<p class=\"resultado-numero\">   $resultado  </p>");
         print("<form action=\"{$rutaVuelta}\" method=\"get\">
         <input type=\"submit\" value=\"Ir Atras\">
         </form>");}
@@ -51,23 +52,23 @@ elseif($_SERVER["REQUEST_METHOD"]=="GET") {
 function opera($num1,$num2,$oper){
 
     switch ($oper) {
-        case 'sum':
+        case 'la suma':
             $retorno = $num1+$num2;
             if (is_int( $retorno)) {
                 return  $retorno;
             }else { return number_format($retorno,3); }
 
-            case 'resta':
+            case 'la resta':
                 $retorno = $num1-$num2;
                 if (is_int( $retorno)) {
                     return  $retorno;
                 }else { return number_format($retorno,3); }
-        case 'multi':
+        case 'la multiplicacion':
             $retorno = $num1*$num2;
             if (is_int( $retorno)) {
                 return  $retorno;
             }else { return number_format($retorno,3); }
-        case 'divid':
+        case 'el cociente':
             $retorno = $num1/$num2;
             if (is_int( $retorno)) {
                 return  $retorno;
