@@ -1,26 +1,48 @@
-body{
+body {
     background-color: rgb(211, 255, 255);
+
 }
 
 form {
 
     display: flex;
     flex-direction: column;
+    max-width: 800px;
+    align-items: flex-start;
+
+
 }
 
-.row1, .row2, .row3 {
+.row1,
+.row2,
+.row3,
+.botones {
     display: flex;
     flex-direction: row;
-    
+    justify-content: space-between;
+
+
+
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.subrow {
+    display: flex;
+    flex-direction: row;
 }
 
 
 .labeltitulo {
-    display:flex ;
+    display: flex;
     flex-direction: row;
 }
-#peso{
+
+#peso {
     width: 60px;
 }
-
-
