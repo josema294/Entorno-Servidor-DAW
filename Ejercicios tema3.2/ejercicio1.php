@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/ejercicio1.css">
     <title>Ejercicio 1 tema 3.2</title>
 </head>
 <body>
@@ -28,6 +29,8 @@
 
 <?php
 
+
+
 function maximo ($num1,$num2,$num3) {
 
     $mayor = $num1;
@@ -43,12 +46,25 @@ function maximo ($num1,$num2,$num3) {
     return $mayor;
 }
 
-$parametro1 = 5;
-$parametro2 = 9;
-$parametro3 = 2;
+if (isset($_POST["input1"])) {
+    $parametro1 = $_POST["input1"];
+}
+if (isset($_POST["input2"])) {
+    $parametro2 = $_POST["input2"];
+}
+if (isset($_POST["input3"])) {
+    $parametro3 = $_POST["input3"];
+}
 
-printf("<h2>El numero maximo de los introducidos en </h2>");
-maximo ($parametro1,$parametro2,$parametro3);
+
+
+
+if ($_SERVER["REQUEST_METHOD"]=="POST") {
+    $max = maximo ($parametro1,$parametro2,$parametro3);
+    printf("<h2>El numero maximo de los introducidos es %s </h2>",$max);
+}
+
+
 
 ?>
     
