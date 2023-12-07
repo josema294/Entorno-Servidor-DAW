@@ -14,6 +14,8 @@ session_start();
 
 if (isset($_POST["borrar"])) {
 
+    unset($_SESSION["nombre"]);
+    unset($_SESSION["apellido"]);
     session_destroy();
     
 }
