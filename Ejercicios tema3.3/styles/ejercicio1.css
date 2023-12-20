@@ -1,0 +1,74 @@
+body {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+label{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.botonera{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#valorCookie{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#selectColor {
+    width: 100px;
+    height: 100px;
+}
+
+#selectColor1{
+    background-color: red;
+    width: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+#selectColor2{
+    background-color: blue;
+    width: 30px;
+    margin-left: 5px;
+    margin-right: 5px;   
+}
+#selectColor3{
+    background-color: green;
+    width: 30px;
+    margin-left: 5px;
+    margin-right: 5px; 
+}
+#selectColor4{
+    background-color: yellow;
+    width: 30px;
+    margin-left: 5px;
+    margin-right: 5px;  
+}
+#selectColor5{
+    background-color: white(255, 0, 179);
+    width: 30px;
+    margin-left: 5px;
+    margin-right: 5px;   
+}
