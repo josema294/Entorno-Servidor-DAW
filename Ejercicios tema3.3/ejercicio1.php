@@ -3,14 +3,18 @@
 <head>
 <?php
 
+
+$color = "";
+
 if (isset($_POST["color"])) {
     $color = $_POST["color"];
     
 
     setcookie("colorFondo", $color, time() + (86400 * 30));
 
+    //Recargo la pagina para que el fondo coja el valor de la cookie
     header("Location: " . $_SERVER['PHP_SELF']);
-    exit;
+    
 }
 
 ?>
