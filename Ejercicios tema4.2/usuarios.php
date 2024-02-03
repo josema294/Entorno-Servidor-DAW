@@ -29,10 +29,10 @@
     //Creamos tarjetas de usuario:
 
     function tarjeta($nombres, $correo, $clave, $id)
-{
+    {
 
-    $rutaimg = randomImg ();
-    echo "<div class=\"card mb-3\" style=\"max-width: 840px;\">
+        $rutaimg = randomImg();
+        echo "<div class=\"card mb-3\" style=\"max-width: 840px;\">
     <div class=\"row g-0\">
         <div class=\"col-md-4\">
             <img src=\"{$rutaimg} \" class=\"img-fluid rounded-start\" alt=\"Imagen del Usuario\">
@@ -52,19 +52,20 @@
         </div>
     </div>
 </div>";
-}
+    }
 
-function randomImg (){
-    $img1 = ".\img\DALL·E 2024-02-03 13.00.18 - Imagine a professional, friendly real estate agent standing in front of a modern home with a sold sign. The agent is dressed in business casual attire.webp";
-    $img2 = ".\img\DALL·E 2024-02-03 13.04.27 - Imagine a professional, approachable female real estate agent standing in front of a modern, welcoming home. She is dressed in smart casual attire, co.webp";
-    $img3 = ".\img\DALL·E 2024-02-03 13.11.24 - Imagine a mature male real estate agent in his fifties with a more relatable, everyday look. He has a fuller figure with a noticeable belly, embodying.webp";
-    $img4 = ".\img\DALL·E 2024-02-03 18.24.20 - Imagine a skilled and experienced male real estate agent in his early fifties, showcasing confidence and professionalism. This agent is bald, reflecti.webp";
-    $img5 = ".\img\DALL·E 2024-02-03 18.24.25 - Visualize a seasoned male real estate agent in his early fifties, standing confidently in front of a property. He's wearing a professional suit that s.webp";
-   
-    $arrayImg = [$img1,$img2,$img3,$img4,$img5];
+    function randomImg()
+    {
+        $img1 = ".\img\DALL·E 2024-02-03 13.00.18 - Imagine a professional, friendly real estate agent standing in front of a modern home with a sold sign. The agent is dressed in business casual attire.webp";
+        $img2 = ".\img\DALL·E 2024-02-03 13.04.27 - Imagine a professional, approachable female real estate agent standing in front of a modern, welcoming home. She is dressed in smart casual attire, co.webp";
+        $img3 = ".\img\DALL·E 2024-02-03 13.11.24 - Imagine a mature male real estate agent in his fifties with a more relatable, everyday look. He has a fuller figure with a noticeable belly, embodying.webp";
+        $img4 = ".\img\DALL·E 2024-02-03 18.24.20 - Imagine a skilled and experienced male real estate agent in his early fifties, showcasing confidence and professionalism. This agent is bald, reflecti.webp";
+        $img5 = ".\img\DALL·E 2024-02-03 18.24.25 - Visualize a seasoned male real estate agent in his early fifties, standing confidently in front of a property. He's wearing a professional suit that s.webp";
 
-    return $arrayImg[rand(0,4)];
-}
+        $arrayImg = [$img1, $img2, $img3, $img4, $img5];
+
+        return $arrayImg[rand(0, 4)];
+    }
 
 
     ?>
@@ -104,20 +105,20 @@ function randomImg (){
 
     <div class="container my-4">
         <div class="row mb-3">
-            <div class="col">
-                <input class="form-control me-2" type="search" placeholder="Buscar usuario o piso" aria-label="Buscar">
-            </div>
+            <form method="POST" action="./usuarios.php" class="d-flex align-items-center">
+                <div class="col">
+                    <input class="form-control me-2" name="buscado" type="search" placeholder="Buscar usuario" aria-label="Buscar">
+                        
+                </div>
 
-            <div class="col-auto">
-                <button class="btn btn-secondary" type="submit">Buscar</button>
-            </div>
-
-            <div class="col-auto">
+                <div class="col-auto">
+                    <button class="btn btn-secondary" type="submit">Buscar</button>
+                </div>
+                <div class="col-auto">
                 <a href="./edit.php" class="btn btn-success">Agregar Nuevo</a>
             </div>
 
-
-
+            </form>
         </div>
     </div>
 
@@ -128,11 +129,11 @@ function randomImg (){
             <div class="accordion" id="accordionListado">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingListado">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseListado" aria-expanded="true" aria-controls="collapseListado">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseListado" aria-expanded="false" aria-controls="collapseListado">
                             Listado de Usuarios
                         </button>
                     </h2>
-                    <div id="collapseListado" class="accordion-collapse collapse show" aria-labelledby="headingListado" data-bs-parent="#accordionListado">
+                    <div id="collapseListado" class="accordion-collapse collapse" aria-labelledby="headingListado" data-bs-parent="#accordionListado">
                         <div class="accordion-body">
                             <!-- resultado listado de usuarios -->
 
@@ -150,7 +151,53 @@ function randomImg (){
                             }
                             ?>
 
-                            
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="container my-4">
+            <div class="accordion" id="accordionListado2">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingListado">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseListado2" aria-expanded="false" aria-controls="collapseListado">
+                            Resultados Busqueda
+                        </button>
+                    </h2>
+                    <div id="collapseListado2" class="accordion-collapse collapse show" aria-labelledby="headingListado" data-bs-parent="#accordionListado">
+                        <div class="accordion-body">
+
+                            <?php
+
+                            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                
+                                $buscado = $_POST["buscado"];
+                                $sql = "Select * from usuario where nombres = '$buscado'";
+                                
+                                $result = mysqli_query($conexion,$sql);
+                                
+                                for ($i=0; $i <mysqli_num_rows($result) ; $i++) { 
+
+                                    $fila = mysqli_fetch_assoc($result);
+                                    $nombres = $fila["nombres"];
+                                    $correo = $fila["correo"];
+                                    $clave = $fila["clave"];
+                                    $id = $fila["usuario_id"];
+    
+                                    tarjeta($nombres, $correo, $clave, $id);
+                                    
+                                }
+                            }
+
+
+
+                            ?>
+
+
                         </div>
                     </div>
                 </div>
