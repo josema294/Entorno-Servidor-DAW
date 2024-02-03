@@ -44,7 +44,10 @@
                 <p class=\"card-text\">{$clave}</p>
                 <p class=\"card-text\"><small class=\"text-muted\">Última actualización hace 3 mins</small></p>
                 <a href=\"./edit.php?id={{$id}}\"class=\"btn btn-primary\">Modificar</a>
-                <button class=\"btn btn-danger btn-sm\" type=\"button\" onclick=\"confirmarBorrado()\">Borrar</button>
+                <form action=\"./borrado.php\" method=\"post\">
+                <input type=\"hidden\" name=\"id_usuario\" value=\"{$id}\">
+                <button class=\"btn btn-danger btn-sm\" type=\"submit\" \">Borrar</button>
+                </form>
             </div>
         </div>
     </div>
@@ -147,7 +150,7 @@ function randomImg (){
                             }
                             ?>
 
-                            <!-- Repetir para cada usuario/piso -->
+                            
                         </div>
                     </div>
                 </div>

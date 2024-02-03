@@ -23,29 +23,23 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-        $nombre = $_POST['nombre'];
-        $email = $_POST['email'];
-        $clave = $_POST['clave'];
-        if (isset($_POST['id'])) {
-            $id = $_POST['id'];
+       
+        if (isset($_POST['id_usuario'])) {
+            $id = $_POST['id_usuario'];
         }
 
-        if (isset($id)) {
-            $sql = "UPDATE usuario SET nombres = '$nombre', correo = '$email', clave = '$clave' WHERE usuario_id = $id";
+        
+        $sql= "DELETE FROM usuario WHERE usuario_id =  '$id' ";
+        $borrado = mysqli_execute_query($conexion,$sql);
 
-            mysqli_query($conexion, $sql);
-        } else {
 
-            $sql = "INSERT INTO  usuario (nombres, correo, clave) VALUES ('$nombre','$email','$clave')";
-
-            mysqli_query($conexion, $sql);
-        }
     }
     ?>
     <div class="container mt-5">
-        <div class="alert alert-success" role="alert">
-            Modificación en base de datos realizada con éxito.
-        </div>
+    <div class="alert alert-danger" role="alert">
+        Borrado de la base de datos realizado con éxito.
+    </div>
+
         <a href="./home.html" class="btn btn-primary">Volver a Home</a>
     </div>
 

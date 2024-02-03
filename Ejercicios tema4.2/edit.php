@@ -45,55 +45,64 @@
         $clave = $tempResult["clave"];
 
         updateCreate($modificando, $nombre, $correo, $clave, $id);
+    } else {
+        updateCreate();
     }
 
 
     //Funcion para imprimir la pagina de agregar o modificar usuario
 
-    function updateCreate($modificando, $nombre, $correo, $clave, $id)
+    function updateCreate($modificando = "", $nombre = "", $correo = "", $clave = "", $id = "")
     {
 
-        if ($modificando == true) {
+        if ($modificando) {
 
-            echo '<div class="container mt-5">
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <div class="card">
-                        <div class="card-body">
-                            <!-- El título del formulario cambia según sea añadir o modificar -->
-                            <h5 class="card-title" id="formTitle">Modificando usuario</h5>
-                            
-                            <form action="./resultado.php" method="POST">
-                                <div class="mb-3">
-                                    <label for="nombreUsuario" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="nombreUsuario" name="nombre" required value="' . $nombre . '">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="emailUsuario" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="emailUsuario" name="email" required value="' . $correo . '">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="clave" class="form-label">Clave</label>
-                                    <input type="text"  class="form-control" id="claveUsuario" name="clave" required value="' . $clave . '">
-                                </div>
+            $titulo = "Modificando usuario";
+            $hiddenId = '<div class="mb-3">
+                        
+            <input type="hidden" class="form-control" id="id" name="id"  value="' . $id . '">
+            </div>';
+        } else {
 
-                                <div class="mb-3">
-                            
-                                <input type="hidden" class="form-control" id="id" name="id"  value="' . $id . '">
-                                </div>
+            $titulo = "Creando usuario";
+            $hiddenId="";
+        }
 
-                                <!-- Botones de acción -->
-                                <button type="submit" class="btn btn-primary">Confirmar</button>
-                                <a href="./usuarios.php" class="btn btn-secondary">Volver Atrás</a>
-                            </form>
-                        </div>
+        echo '<div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- El título del formulario cambia según sea añadir o modificar -->
+                        <h5 class="card-title" id="formTitle"> ' . $titulo . '</h5>
+                        
+                        <form action="./resultado.php" method="POST">
+                            <div class="mb-3">
+                                <label for="nombreUsuario" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombreUsuario" name="nombre" required value="' . $nombre . '">
+                            </div>
+                            <div class="mb-3">
+                                <label for="emailUsuario" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="emailUsuario" name="email" required value="' . $correo . '">
+                            </div>
+                            <div class="mb-3">
+                                <label for="clave" class="form-label">Clave</label>
+                                <input type="text"  class="form-control" id="claveUsuario" name="clave" required value="' . $clave . '">
+                            </div>
+
+                            ' . $hiddenId . '
+
+                            <!-- Botones de acción -->
+                            <button type="submit" class="btn btn-primary">Confirmar</button>
+                            <a href="./usuarios.php" class="btn btn-secondary">Volver Atrás</a>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>';
-        } else {
-        }
+        </div>
+    </div>';
     }
+
 
     ?>
 
