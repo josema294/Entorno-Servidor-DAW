@@ -1,81 +1,199 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inmobiliaria Ficticia</title>
-    <!-- CDN de Bootstrap CSS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Índice de Ejercicios</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-<header>
-    <!-- Navbar con Bootstrap -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">Inmobiliaria Ficticia</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Propiedades</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sobre Nosotros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contacto</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
+  <div class="evaluables">
+    <h3>Actividades Evaluables</h3>
+    <table>
+      <tr>
+        <th>Ejercicio</th>
+        <th>Descripción</th>
+        <th>Recurso si lo hubiera</th>
+      </tr>
+      <tr>
+        <td><a href="./Actividad1_Trimestre1/diujaasterisco.php">Actividad1 ejercicio1</a></td>
+        <td><p>Realizar un programa PHP que generé 2 números aleatorios (entre 5 y 15) y me dibujé un
+          rectángulo de asteriscos como se puesta en la figura:
+          </p></td>
+        <td><img src="./Actividad1_Trimestre1/resources/imgs/rectangulo.png" width="200" height="200"></td>
 
-<!-- Sección Hero con Bootstrap -->
-<section class="jumbotron jumbotron-fluid text-center bg-light">
-    <div class="container">
-        <h1 class="display-4">Encuentra tu lugar ideal</h1>
-        <p class="lead">Tu hogar soñado te está esperando. Explora las mejores propiedades en el mercado con nosotros.</p>
-        <a href="#" class="btn btn-primary">Explorar Propiedades</a>
-    </div>
-</section>
+      </tr>
+      <tr>
+        <td><a href="./Actividad1_Trimestre1/juegodados.php">Actividad1 ejercicio2</a></td>
+        <td><p>El objetivo de este ejercicio es crear un programa en PHP que simule un juego de dados para
+          dos jugadores. En lugar de un dado, cada jugador lanzará 5 dados y se almacenarán los
+          resultados en dos matrices. Después de cada tirada, el programa determinará quién gana según
+          las reglas del juego y mostrará el resultado
+          </p>
+          <p>
+            Lanzamiento de Dados:
+            Cada jugador lanzará 5 dados. Puedes usar la función rand() para simular el lanzamiento de un
+            dado de seis caras (valores entre 1 y 6).
+            Almacena los resultados de los dos jugadores en dos vectores, una para cada jugador.
+          </p>
+          <p>
+            Determinación del Ganador:
+          Después de cada tirada, compara los resultados de ambos jugadores.
+           Suma los valores obtenidos en los 5 dados de cada jugador.
+           El jugador con la suma total más alta gana la ronda.
+           Si ambos jugadores tienen la misma suma total, la ronda se considera un empate.
+          </p>
+          <p>
+            Mostrar Resultados:
+            Después de cada ronda, muestra el resultado de esa ronda, indicando quién ganó o si hubo un
+            empate.
+            Lleva un registro de las rondas ganadas por cada jugador a lo largo del juego.
+            Utiliza funciones en PHP para estructurar tu código y hacerlo más legible.
+            Proporciona una salida clara que indique los resultados de cada ronda y el progreso del juego.
 
-<!-- Sección de Propiedades Destacadas -->
-<section class="container my-5">
-    <h2 class="text-center mb-3">Propiedades Destacadas</h2>
-    <div class="row">
-        <!-- Ejemplo de Propiedad -->
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="ruta/a/imagen.jpg" class="card-img-top" alt="Imagen de Propiedad">
-                <div class="card-body">
-                    <h5 class="card-title">Título de Propiedad</h5>
-                    <p class="card-text">Descripción breve de la propiedad.</p>
-                    <a href="#" class="btn btn-primary">Más Detalles</a>
-                </div>
-            </div>
-        </div>
-        <!-- Repetir para más propiedades según sea necesario -->
-    </div>
-</section>
+          </p>
+        </td>
+        <td><img src="./Actividad1_Trimestre1/resources/imgs/dados.png" width="200" height="200"></td>
 
-<!-- Sección Sobre Nosotros -->
-<section class="container my-5">
-    <h2 class="text-center mb-3">Sobre Nosotros</h2>
-    <p class="text-center">Con más de 10 años de experiencia en el mercado, Inmobiliaria Ficticia se dedica a encontrar el hogar perfecto para cada cliente.</p>
-</section>
+      </tr>
 
-<!-- Footer -->
-<footer class="text-center py-4 bg-light">
-    <p>&copy; 2024 Inmobiliaria Ficticia. Todos los derechos reservados.</p>
-</footer>
+      <tr>
+        <td><a href="./Actividad1_Trimestre1/operaciones.php">Actividad1 ejercicio3</a></td>
+        <td><p>Realizar una página web llamada operaciones.php que contenga un formulario con dos cuadros
+          de texto y cuatro botones de radio según el siguiente esquema:</p>
+          <p>Al pulsar sobre el botón “Enviar datos”, cargará la página datos_operaciones.php que recibirá
+          los números enteros introducidos en el formulario y la operación a realizar con ellos como
+          parámetros, y mostrará el resultado de realizar la operación seleccionada sobre los dos valores
+          introducidos. Por ejemplo, si se introdujo en los cuadros de texto del formulario el número 12 y
+          el número 6, y se seleccionó la operación Cociente, al pulsar el botón Enviar datos, la página php
+          que carga mostrará: “El resultado de realizar el cociente de los números 12 y 6 es 2”.
+          
+          </p></td>
+        <td><img src="./Actividad1_Trimestre1/resources/imgs/form.png" width="200" height="200"></td>
 
+      </tr>
+     
+    </table>
+  </div>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <div class="ejercicios">
+    <h3>Actividades Complementarias, No Evaluables</h3>
+    <table>
+      <tr>
+        <th>Ejercicio</th>
+        <th>Descripción</th>
+        <th>Recurso si lo hubiera</th>
+      </tr>
+      <tr>
+        <td><a href="./Ejercicios tema2.1/ejercicio1.php">Tema 2.1 Ejercicio 1</a></td>
+        <td></td>
+        <td>...</td>
+       
+      </tr>
+
+      <tr>
+        <td><a href="./Ejercicios tema2.1/ejercicio2.php">Tema 2.1 Ejercicio 2</a></td>
+        <td></td>
+        <td>...</td>
+      </tr>
+
+      <tr>
+        <td><a href="./Ejercicios tema2.1/ejercicio3.php">Tema 2.1 Ejercicio 3</a></td>
+        <td></td>
+        <td>...</td>
+      </tr>
+
+      <tr>
+        <td><a href="./Ejercicios tema2.1/ejercicio4.php">Tema 2.1 Ejercicio 4</a></td>
+        <td></td>
+        <td>...</td>
+      </tr>
+      <tr>
+        <td><a href="./Ejercicios tema2.1/ejercicio5.php">Tema 2.1 Ejercicio 5</a></td>
+        <td></td>
+        <td>...</td>
+      </tr>
+      <tr>
+        <td><a href="./Ejercicios tema2.1/ejercicio6.php">Tema 2.1 Ejercicio 6</a></td>
+        <td></td>
+        <td>...</td>
+      </tr>
+      <tr>
+        <td><a href="./Ejercicios tema2.2/ejercicio1.php">Tema 2.2 Ejercicio 1</a></td>
+        <td></td>
+        <td>...</td>
+      </tr>
+      <tr>
+        <td><a href="./Ejercicios tema2.2/ejercicio2.php">Tema 2.2 Ejercicio 2</a></td>
+        <td></td>
+        <td>...</td>
+      </tr>
+      <tr>
+        <td><a href="./Ejercicios tema2.2/ejercicio3.php">Tema 2.2 Ejercicio 3</a></td>
+        <td></td>
+        <td>...</td>
+      </tr>
+      <tr>
+        <td><a href="./Ejercicios tema2.2/ejercicio4.php">Tema 2.2 Ejercicio 4</a></td>
+        <td></td>
+        <td>...</td>
+      </tr>
+      <tr>
+        <td><a href="./Ejercicios tema3.1/ejercicio1.php">Tema 3.1 Ejercicio 1</a></td>
+        <td></td>
+        <td>...</td>
+      </tr>
+      <tr>
+        <td><a href="./Ejercicios tema3.1/ejercicio2.php">Tema 3.1 Ejercicio 2</a></td>
+        <td></td>
+        <td>...</td>
+      </tr>
+      <tr>
+        <td><a href="./Ejercicios tema3.1/ejercicio3.php">Tema 3.1 Ejercicio 3</a></td>
+        <td></td>
+        <td>...</td>
+      </tr>
+
+       <tr>
+        <td><a href="./Ejercicios tema3.2/ejercicio1.php">Tema 3.2 Ejercicio 1</a></td>
+        <td></td>
+        <td>...</td>
+      </tr>
+
+      <tr>
+        <td><a href="./Ejercicios tema3.2/ejercicio2.php">Tema 3.2 Ejercicio 2</a></td>
+        <td></td>
+        <td>...</td>
+      </tr>
+
+      <tr>
+        <td><a href="./Ejercicios tema3.2/ejercicio3.php">Tema 3.2 Ejercicio 3</a></td>
+        <td></td>
+        <td>...</td>
+      </tr>
+
+      <tr>
+        <td><a href="./Ejercicios tema3.3/ejercicio1.php">Tema 3.3 Ejercicio 1</a></td>
+        <td></td>
+        <td>...</td>
+      </tr>
+
+      <tr>
+        <td><a href="./Ejercicios tema3.3/ejercicio2.php">Tema 3.3 Ejercicio 2</a></td>
+        <td></td>
+        <td>...</td>
+      </tr>
+
+      <tr>
+        <td><a href="./Ejercicios tema4.2/home.html">Tema 4.2 Ejercicio Inmobiliaria</a></td>
+        <td>Ejercicio compelto de simulacion de una inmobiliaria</td>
+        <td>...</td>
+      </tr>
+
+      
+    </table>
+  </div>
+
 </body>
 </html>
