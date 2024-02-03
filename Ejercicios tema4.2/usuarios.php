@@ -110,8 +110,10 @@ function randomImg (){
             </div>
 
             <div class="col-auto">
-                <button class="btn btn-success" type="submit">Agregar Nuevo</button>
+                <a href="./edit.php" class="btn btn-success">Agregar Nuevo</a>
             </div>
+
+
 
         </div>
     </div>
