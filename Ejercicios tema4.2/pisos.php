@@ -111,9 +111,9 @@
 
     <div class="container my-4">
         <div class="row mb-3">
-            <form method="POST" action="./usuarios.php" class="d-flex align-items-center">
+            <form method="POST" action="./pisos.php" class="d-flex align-items-center">
                 <div class="col">
-                    <input class="form-control me-2" name="buscado" type="search" placeholder="Buscar usuario" aria-label="Buscar">
+                    <input class="form-control me-2" name="buscado" type="search" placeholder="Buscar piso por numero de calle" aria-label="Buscar">
 
                 </div>
 
@@ -187,21 +187,25 @@
                             <?php
 
                             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
                                 $buscado = $_POST["buscado"];
-                                $sql = "Select * from usuario where nombres = '$buscado'";
+                                $sql = "SELECT * FROM pisos WHERE calle LIKE '%$buscado%'";
 
                                 $result = mysqli_query($conexion, $sql);
 
                                 for ($i = 0; $i < mysqli_num_rows($result); $i++) {
-
                                     $fila = mysqli_fetch_assoc($result);
-                                    $nombres = $fila["nombres"];
-                                    $correo = $fila["correo"];
-                                    $clave = $fila["clave"];
-                                    $id = $fila["usuario_id"];
-
-                                    tarjeta($nombres, $correo, $clave, $id);
+                                    $codigoPiso = $fila["Codigo_piso"];
+                                    $calle = $fila["calle"];
+                                    $numero = $fila["numero"];
+                                    $piso = $fila["piso"];
+                                    $puerta = $fila["puerta"];
+                                    $cp = $fila["cp"];
+                                    $metros = $fila["metros"];
+                                    $zona = $fila["zona"];
+                                    $precio = $fila["precio"];
+                                    $imagen = $fila["imagen"];
+                                    // Asumiendo que tienes una función tarjeta adaptada para pisos
+                                    tarjetaPiso($codigoPiso, $calle, $numero, $piso, $puerta, $cp, $metros, $zona, $precio, $imagen,$usuarioId);
                                 }
                             }
 
