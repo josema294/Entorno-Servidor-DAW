@@ -19,10 +19,6 @@
     $conexion = mysqli_connect($servidor, $usuario, $password) or die("Fallo conexion");
     $boolConexion = mysqli_select_db($conexion, "inmobiliaria") or die("Imposible seleccionar BD");
 
-    print_r($_POST);
-
-    echo $_POST['Codigo_piso'];
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $id = $_POST['Codigo_piso'];
         $calle = $_POST['calle'];
@@ -41,11 +37,11 @@
         if ($id != null) {
             $codigoPiso = $_POST['Codigo_piso'];
             // Actualizar piso existente
-            echo("actualizando");
+            
             $sql = "UPDATE pisos SET calle = '$calle', numero = '$numero', piso = '$piso', puerta = '$puerta', cp = '$cp', metros = '$metros', zona = '$zona', precio = '$precio', imagen = '$imagen' WHERE Codigo_piso = '$codigoPiso'";
         } else {
             // Insertar nuevo piso
-            echo "Creando;";
+            
             $sql = "INSERT INTO pisos (calle, numero, piso, puerta, cp, metros, zona, precio, imagen, usuario_id) VALUES ('$calle', '$numero', '$piso', '$puerta', '$cp', '$metros', '$zona', '$precio', '$imagen', '$usuarioId')";
         }
 

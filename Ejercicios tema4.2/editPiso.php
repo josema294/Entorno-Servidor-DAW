@@ -50,9 +50,6 @@
         $precio = $piso["precio"] ?? "";
         $imagen = $piso["imagen"] ?? randomImg();
         $usuarioId = $piso["usuario_id"] ?? "";
-        
-
-        echo $imagen;
 
         echo '
         <div class="container mt-5">
