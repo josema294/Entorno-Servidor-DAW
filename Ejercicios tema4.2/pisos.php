@@ -45,9 +45,12 @@
                     <p class=\"card-text\">Zona: {$zona}</p>
                     <p class=\"card-text\">Precio: {$precio} €</p>
                     <p class=\"card-text\"><small class=\"text-muted\">Última actualización hace 3 mins</small></p>
-                    <a href=\"./edit_piso.php?id={$codigoPiso}\" class=\"btn btn-primary\">Modificar</a>
-                    <form action=\"./borrado_piso.php\" method=\"post\">
-                        <input type=\"hidden\" name=\"codigo_piso\" value=\"{$codigoPiso}\">
+                    <form action=\"./editPiso.php\" method=\"get\">
+                        <input type=\"hidden\" name=\"Codigo_piso\" value=\"$codigoPiso\">
+                        <button type=\"submit\" class=\"btn btn-primary\">Modificar</button>
+                    </form>
+                    <form action=\"./borradoPiso.php\" method=\"post\">
+                        <input type=\"hidden\" name=\"Codigo_piso\" value=\"{$codigoPiso}\">
                         <button class=\"btn btn-danger btn-sm\" type=\"submit\">Borrar</button>
                     </form>
                 </div>
@@ -62,8 +65,8 @@
         $img2 = ".\img\DALL·E 2024-02-03 13.17.35 - Envision a traditional and cozy house exterior with a pitched roof, brick facade, and charming front porch. Surrounded by a lush garden and mature tre.webp";
         $img3 = ".\img\DALL·E 2024-02-03 13.17.51 - Picture a luxurious beachfront villa with a modern design, featuring expansive terraces, glass balustrades, and a seamless indoor-outdoor living space.webp";
 
-        $img4 = ".\img\DALL·E 2024-02-03 18.24.20 - Imagine a skilled and experienced male real estate agent in his early fifties, showcasing confidence and professionalism. This agent is bald, reflecti.webp";
-        $img5 = ".\img\DALL·E 2024-02-03 18.24.25 - Visualize a seasoned male real estate agent in his early fifties, standing confidently in front of a property. He's wearing a professional suit that s.webp";
+        $img4 = ".\img\DALL·E 2024-02-04 11.34.36 - Visualize a modest, single-story home with a simple architectural design. The exterior features vinyl siding, a small front porch, and a basic landsca.webp";
+        $img5 = ".\img\DALL·E 2024-02-04 11.34.37 - Imagine a small, two-story townhouse with a brick facade. It features a compact design with a narrow front yard and a small, paved driveway. The townh.webp";
 
         $arrayImg = [$img1, $img2, $img3, $img4, $img5];
 
@@ -118,7 +121,7 @@
                     <button class="btn btn-secondary" type="submit">Buscar</button>
                 </div>
                 <div class="col-auto">
-                    <a href="./edit.php" class="btn btn-success">Agregar Nuevo</a>
+                    <a href="./editPiso.php" class="btn btn-success">Agregar Nuevo</a>
                 </div>
 
             </form>
@@ -133,7 +136,7 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingListado">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseListado" aria-expanded="false" aria-controls="collapseListado">
-                            Listado de Usuarios
+                            Listado de Pisos
                         </button>
                     </h2>
                     <div id="collapseListado" class="accordion-collapse collapse" aria-labelledby="headingListado" data-bs-parent="#accordionListado">

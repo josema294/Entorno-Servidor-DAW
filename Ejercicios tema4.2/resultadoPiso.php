@@ -19,7 +19,12 @@
     $conexion = mysqli_connect($servidor, $usuario, $password) or die("Fallo conexion");
     $boolConexion = mysqli_select_db($conexion, "inmobiliaria") or die("Imposible seleccionar BD");
 
+    print_r($_POST);
+
+    echo $_POST['Codigo_piso'];
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $id = $_POST['Codigo_piso'];
         $calle = $_POST['calle'];
         $numero = $_POST['numero'];
         $piso = $_POST['piso'];
@@ -28,16 +33,20 @@
         $metros = $_POST['metros'];
         $zona = $_POST['zona'];
         $precio = $_POST['precio'];
-        $imagen = $_POST['imagen']; // Asegúrate de manejar la carga de imágenes adecuadamente
-        $usuarioId = $_POST['usuario_id']; // Asume que este es el id del usuario que agrega o modifica el piso
+        $imagen = $_POST['imagen']; 
+        $usuarioId = $_POST['usuario_id']; 
 
-        if (isset($_POST['codigo_piso'])) {
-            $codigoPiso = $_POST['codigo_piso'];
+        
+
+        if ($id != null) {
+            $codigoPiso = $_POST['Codigo_piso'];
             // Actualizar piso existente
-            $sql = "UPDATE piso SET calle = '$calle', numero = '$numero', piso = '$piso', puerta = '$puerta', cp = '$cp', metros = '$metros', zona = '$zona', precio = '$precio', imagen = '$imagen' WHERE codigo_piso = $codigoPiso";
+            echo("actualizando");
+            $sql = "UPDATE pisos SET calle = '$calle', numero = '$numero', piso = '$piso', puerta = '$puerta', cp = '$cp', metros = '$metros', zona = '$zona', precio = '$precio', imagen = '$imagen' WHERE Codigo_piso = '$codigoPiso'";
         } else {
             // Insertar nuevo piso
-            $sql = "INSERT INTO piso (calle, numero, piso, puerta, cp, metros, zona, precio, imagen, usuario_id) VALUES ('$calle', '$numero', '$piso', '$puerta', '$cp', '$metros', '$zona', '$precio', '$imagen', '$usuarioId')";
+            echo "Creando;";
+            $sql = "INSERT INTO pisos (calle, numero, piso, puerta, cp, metros, zona, precio, imagen, usuario_id) VALUES ('$calle', '$numero', '$piso', '$puerta', '$cp', '$metros', '$zona', '$precio', '$imagen', '$usuarioId')";
         }
 
         mysqli_query($conexion, $sql);
