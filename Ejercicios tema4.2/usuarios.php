@@ -56,11 +56,11 @@
 
     function randomImg()
     {
-        $img1 = ".\img\DALL·E 2024-02-03 13.00.18 - Imagine a professional, friendly real estate agent standing in front of a modern home with a sold sign. The agent is dressed in business casual attire.webp";
-        $img2 = ".\img\DALL·E 2024-02-03 13.04.27 - Imagine a professional, approachable female real estate agent standing in front of a modern, welcoming home. She is dressed in smart casual attire, co.webp";
-        $img3 = ".\img\DALL·E 2024-02-03 13.11.24 - Imagine a mature male real estate agent in his fifties with a more relatable, everyday look. He has a fuller figure with a noticeable belly, embodying.webp";
-        $img4 = ".\img\DALL·E 2024-02-03 18.24.20 - Imagine a skilled and experienced male real estate agent in his early fifties, showcasing confidence and professionalism. This agent is bald, reflecti.webp";
-        $img5 = ".\img\DALL·E 2024-02-03 18.24.25 - Visualize a seasoned male real estate agent in his early fifties, standing confidently in front of a property. He's wearing a professional suit that s.webp";
+        $img1 = ".\img\imguser1.webp";
+        $img2 = ".\img\imguser2.webp";
+        $img3 = ".\img\imguser3.webp";
+        $img4 = ".\img\imguser4.webp";
+        $img5 = ".\img\imguser5.webp";
 
         $arrayImg = [$img1, $img2, $img3, $img4, $img5];
 

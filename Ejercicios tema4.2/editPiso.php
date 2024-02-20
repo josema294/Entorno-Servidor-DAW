@@ -124,12 +124,12 @@
 
     function randomImg()
     {
-        $img1 = "./img/DALL·E 2024-02-03 13.17.14 - Visualize a modern, luxurious home from the outside, showcasing sleek architectural lines, a flat roof, and large windows. The facade is a combination.webp";
-        $img2 = "./img/DALL·E 2024-02-03 13.17.35 - Envision a traditional and cozy house exterior with a pitched roof, brick facade, and charming front porch. Surrounded by a lush garden and mature tre.webp";
-        $img3 = "./img/DALL·E 2024-02-03 13.17.51 - Picture a luxurious beachfront villa with a modern design, featuring expansive terraces, glass balustrades, and a seamless indoor-outdoor living space.webp";
+        $img1 = "./img/casa1.webp";
+        $img2 = "./img/casa2.webp";
+        $img3 = "./img/casa3.webp";
 
-        $img4 = "./img/DALL·E 2024-02-04 11.34.36 - Visualize a modest, single-story home with a simple architectural design. The exterior features vinyl siding, a small front porch, and a basic landsca.webp";
-        $img5 = "./img/DALL·E 2024-02-04 11.34.37 - Imagine a small, two-story townhouse with a brick facade. It features a compact design with a narrow front yard and a small, paved driveway. The townh.webp";
+        $img4 = "./img/casa4.webp";
+        $img5 = "./img/casa5.webp";
 
         $arrayImg = [$img1, $img2, $img3, $img4, $img5];
 
