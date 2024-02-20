@@ -141,25 +141,25 @@
                     </h2>
                     <div id="collapseListado" class="accordion-collapse collapse" aria-labelledby="headingListado" data-bs-parent="#accordionListado">
                         <div class="accordion-body">
-                            <!-- resultado listado de usuarios -->
+                            <!-- resultado listado de pisos -->
 
                             <?php
 
                             for ($i = 0; $i < $numeroFilas; $i++) {
-                                $fila = mysqli_fetch_assoc($pisosResul); // Asumiendo que $pisosResul contiene los resultados de tu consulta de pisos
-                                $codigoPiso = $fila["Codigo_piso"]; // Asegúrate de que el nombre de la columna coincida exactamente con cómo está en tu base de datos
+                                $fila = mysqli_fetch_assoc($pisosResul); 
+                                $codigoPiso = $fila["Codigo_piso"]; 
                                 $calle = $fila["calle"];
                                 $numero = $fila["numero"];
-                                $piso = $fila["piso"]; // Añadido basado en la estructura de tu tabla
-                                $puerta = $fila["puerta"]; // Añadido basado en la estructura de tu tabla
+                                $piso = $fila["piso"]; 
+                                $puerta = $fila["puerta"]; 
                                 $cp = $fila["cp"];
                                 $metros = $fila["metros"];
                                 $zona = $fila["zona"];
-                                $precio = $fila["precio"]; // Asumiendo que quieres incluir el precio en la tarjeta
-                                $imagen = $fila["imagen"]; // Asumiendo que la columna 'imagen' contiene la ruta de la imagen
-                                $usuarioId = $fila["usuario_id"]; // Incluido por completitud, ajusta según sea necesario
+                                $precio = $fila["precio"];
+                                $imagen = $fila["imagen"]; 
+                                $usuarioId = $fila["usuario_id"]; 
 
-                                // Llamada a la función ajustada con los nuevos argumentos
+                               
                                 tarjetaPiso($codigoPiso, $calle, $numero, $piso, $puerta, $cp, $metros, $zona, $precio, $imagen, $usuarioId);
                             }
                             ?>
@@ -204,7 +204,6 @@
                                     $zona = $fila["zona"];
                                     $precio = $fila["precio"];
                                     $imagen = $fila["imagen"];
-                                    // Asumiendo que tienes una función tarjeta adaptada para pisos
                                     tarjetaPiso($codigoPiso, $calle, $numero, $piso, $puerta, $cp, $metros, $zona, $precio, $imagen,$usuarioId);
                                 }
                             }
