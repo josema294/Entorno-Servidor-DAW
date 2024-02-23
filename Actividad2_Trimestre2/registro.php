@@ -7,6 +7,40 @@
 </head>
 <body>
 
+<?php
+    include ("./config/db.php");
+   
+   
+
+    if ($_SERVER["REQUEST_METHOD"]=="POST") {
+        
+       $nombre = $_POST["nombre"];
+       $correo = $_POST["correo"];
+       $clave =  $_POST["clave"];
+       $tipo_usuario = $_POST["tipoUsuario"];
+       $sql = "INSERT INTO usuarios (nombres, correo, clave, tipo_usuario) 
+       VALUES ('$nombre', '$correo', '$clave', '$tipo_usuario')";
+
+       DataBaseConection::openConection();
+       $conexion = DataBaseConection::getConexion();
+       
+       if (mysqli_query($conexion, $sql)) {
+            print('<div class="alert alert-success" role="alert">
+            Se ha creado exitosamente el usuario.
+          </div>
+            ');
+       } else{
+        print('<div class="alert alert-warning" role="alert">
+        A simple warning alert—check it out!
+      </div>
+        ');
+       }
+
+       DataBaseConection::closeConection();
+    }
+
+?>
+
     <!doctype html>
 <html lang="es">
 <head>
@@ -32,11 +66,11 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h2 class="mb-4">Registro de Usuario</h2>
-            <form>
+            <form method="post" action="#">
                 <!-- Nombres -->
                 <div class="mb-3">
                     <label for="nombres" class="form-label">Nombres</label>
-                    <input type="text" class="form-control" id="nombres" name="nombres" required>
+                    <input type="text" class="form-control" id="nombres" name="nombre" required>
                 </div>
 
                 <!-- Correo electrónico -->
@@ -53,18 +87,18 @@
 
                 <!-- Tipo de Usuario -->
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                      Usuario comprador
+                    <input class="form-check-input" type="radio" name="tipoUsuario" id="radioComprador" value="comprador" checked>
+                    <label class="form-check-label" for="radioComprador">
+                        Usuario comprador
                     </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                    
-                    <label class="form-check-label" for="flexRadioDefault2">
-                      Usuario vendedor
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="tipoUsuario" id="radioVendedor" value="vendedor" >
+                    <label class="form-check-label" for="radioVendedor">
+                        Usuario vendedor
                     </label>
-                  </div>
+                </div>
+
 
                 <!-- Botón de registro -->
                 <button type="submit" class="btn btn-primary m-3">Registrar</button>

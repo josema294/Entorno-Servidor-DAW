@@ -2,6 +2,19 @@
 <?php include ('./templates/header.php');?>
 <main>
 
+<?php
+
+$modo = "sinRegistro";
+
+
+
+if ($_SERVER["REQUEST_METHOD"]=="POST") {
+
+}
+
+
+
+?>
 
    
 

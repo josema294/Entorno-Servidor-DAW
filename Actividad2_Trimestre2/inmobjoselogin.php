@@ -9,6 +9,68 @@
 </head>
 <body>
 
+
+<?php
+    include("./config/db.php");
+
+    print_r($_POST);
+    session_start();
+    $correoCorrecto = false;
+    $claveCorrecto = false;
+
+    if ($_SERVER["REQUEST_METHOD"]=="POST") {
+
+        $correo = $_POST["correo"];
+        $clave =  $_POST["clave"];
+
+        //Comprobamos que existan en la base de datos
+        $sqlCorreo = "SELECT correo FROM USUARIOS where correo = '$correo'";
+        $sqlClave = "SELECT clave FROM USUARIOS where correo = '$correo' and clave = '$clave'";
+
+        DataBaseConection::openConection();
+        $conexion = DataBaseConection::getConexion();
+
+        $resultCorreo = mysqli_query($conexion,$sqlCorreo);
+        
+        if(mysqli_num_rows($resultCorreo)>0) {
+            $correoCorrecto = true;
+           
+           } else {
+            print ('<div class="alert alert-danger" role="alert">
+            El correo es incorrecto.
+          </div>');
+        }
+
+        //Comprobamos ahora la pass
+        $resultclave = mysqli_query($conexion,$sqlClave);
+        
+        if (mysqli_num_rows($resultclave)>0) {
+            $claveCorrecto = true;
+        }else{
+            print ('<div class="alert alert-danger" role="alert">
+            La contrasena no es correcta.
+          </div>');
+        }
+        
+        //Si todo es correcto creamos la sesion para el usuario y le redirigimos al home
+        if ($correoCorrecto && $claveCorrecto) {
+            
+            $sqlTipo = "SELECT tipo_usuario from usuarios where correo = '$correo' and clave = '$clave'";
+            $tipo = mysqli_fetch_column(mysqli_query($conexion,$sqlTipo));
+            $_SESSION["idSesion"] =  random_int(0,10000);
+            $_SESSION["logueado"] = true;
+            $_SESSION["tipoUsuario"] = $tipo;
+        }
+
+        
+
+    }
+
+
+
+?>
+
+
 <div class="container py-4 my-4">
     <div class="row justify-content-center">
         <div class="col-md-6 text-center">
@@ -23,22 +85,22 @@
 </div>
 
 <div class="container my-5">
-    <form method="post">
+    <form method="post" action="#">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Dirección de correo electrónico</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="correo">
             <div id="emailHelp" class="form-text">No compartiremos tu email con nadie más.</div>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input type="password" class="form-control" name="clave" id="clave">
         </div>
         <div class="mb-3">
           <a href="./registro.php">Si no dispones de usuario, registrate en este enlace</a>
         </div>
 
         
-        <button type="submit" class="btn btn-primary">Accede con tu cuenta</button>
+        <button type="submit" class="btn btn-primary" >Accede con tu cuenta</button>
         <a type="submit" href="./home.php" class="btn btn-primary">Accede sin registro</a>
     </form>
 </div>
