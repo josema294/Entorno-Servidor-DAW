@@ -1,5 +1,6 @@
 <?php
 include("./config/db.php");
+
 //Primero de todo averiguar el id de usuario para que se guarde el piso con esa informacion
 
 DataBaseConection::openConection();

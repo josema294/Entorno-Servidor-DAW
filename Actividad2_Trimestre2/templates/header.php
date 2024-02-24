@@ -45,6 +45,16 @@ switch ($_SESSION["tipoUsuario"]) {
             <a class="nav-link" href="./inmobjoselogin.php">salir</a>
         </li>
 
+        <?php
+
+        if ($_SESSION["tipoUsuario"]== "admin") {
+            print (' <li class="nav-item">
+            <a class="nav-link" href="./administracion.php">Administracion</a>
+        </li>');
+        }
+
+        ?>
+
     </ul>
 </header>
 
