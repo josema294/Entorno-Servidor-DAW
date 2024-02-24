@@ -45,7 +45,7 @@
                     <input class="form-control me-2" type="search" placeholder="Buscar piso" aria-label="Buscar" name="busquedaPiso">
                     <button class="btn btn-outline-success" type="submit">Buscar</button>
                 </form>
-                <button class="btn btn-success mb-2">Crear (Alta)</button>
+                <a href="./publicaPiso.php" class="btn btn-success mb-2">Creacion de piso</a>
                 <button class="btn btn-info mb-2">Listar</button>
             </div>
         </div>
