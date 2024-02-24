@@ -63,11 +63,17 @@
         if ($correoCorrecto && $claveCorrecto) {
 
             $sqlTipo = "SELECT tipo_usuario from usuarios where correo = '$correo' and clave = '$clave'";
+            $sqlidUsuario = "SELECT usuario_id from usuarios where correo = '$correo' and clave = '$clave'";
             $tipo = mysqli_fetch_column(mysqli_query($conexion,$sqlTipo));
+            $usuario_id = mysqli_fetch_column(mysqli_query($conexion,$sqlidUsuario));
             $_SESSION["idSesion"] =  random_int(0,10000);
             $_SESSION["logueado"] = true;
             $_SESSION["tipoUsuario"] = $tipo;
+            $_SESSION["usuario_id"] = $usuario_id;
             print_r($_SESSION);
+
+            DataBaseConection::closeConection();
+
             header("location: ./home.php");
             exit();
         }

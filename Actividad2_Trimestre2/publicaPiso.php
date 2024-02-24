@@ -8,7 +8,7 @@
 
     if (($logueado == 1 ) && (( $tipo == "vendedor") || ($tipo == "admin") ) ){
         
-        echo "hola;";
+        include('./templates/formPiso.php');
     
     } else{
 
