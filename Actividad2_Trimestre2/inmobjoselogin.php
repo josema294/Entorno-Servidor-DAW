@@ -1,3 +1,5 @@
+<?php include("./config/sesion.php")  ?>
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -11,10 +13,15 @@
 
 
 <?php
-    include("./config/db.php");
+    include("./config/db.php"); 
 
-    print_r($_POST);
-    session_start();
+    //Si se accede GET, por enlace y no por redirecion de POST, reiniciamos los valores pare desloguear la sesion
+    if ($_SERVER["REQUEST_METHOD"]=="GET") {
+        
+        session_unset();
+        
+    }
+
     $correoCorrecto = false;
     $claveCorrecto = false;
 
@@ -54,20 +61,17 @@
         
         //Si todo es correcto creamos la sesion para el usuario y le redirigimos al home
         if ($correoCorrecto && $claveCorrecto) {
-            
+
             $sqlTipo = "SELECT tipo_usuario from usuarios where correo = '$correo' and clave = '$clave'";
             $tipo = mysqli_fetch_column(mysqli_query($conexion,$sqlTipo));
             $_SESSION["idSesion"] =  random_int(0,10000);
             $_SESSION["logueado"] = true;
             $_SESSION["tipoUsuario"] = $tipo;
+            print_r($_SESSION);
+            header("location: ./home.php");
+            exit();
         }
-
-        
-
     }
-
-
-
 ?>
 
 
