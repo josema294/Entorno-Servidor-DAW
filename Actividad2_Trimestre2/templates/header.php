@@ -38,7 +38,7 @@ switch ($_SESSION["tipoUsuario"]) {
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="#">Sobre nosotros</a>
+            <a class="nav-link" href="./about.php">Sobre nosotros</a>
         </li>
 
         <li class="nav-item">
