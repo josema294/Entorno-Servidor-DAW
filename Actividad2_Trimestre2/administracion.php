@@ -96,6 +96,18 @@
           </div>',$id);
 
         }
+
+         //Si se va a eliminar un piso
+         if (isset($_GET["eliminarPiso"])) {
+            $id = $_GET["eliminarPiso"];
+            $sql = "DELETE FROM `pisos` WHERE Codigo_piso =  $id ";
+            mysqli_query($conexion,$sql);
+
+            printf ('<div class="alert alert-danger" role="alert">
+            Se ha eliminado exitosamente el usuario con id: %s
+          </div>',$id);
+
+        }
         
         //Pintamos los resultados para Usuarios
         if ($modoImpresion == "usuarios") {
@@ -176,6 +188,8 @@
                             <th scope="col">Precio</th>
                             <th scope="col">Imagen</th>
                             <th scope="col">Id propietario</th>
+                            <th scope="col">Modificar</th>
+                            <th scope="col">Eliminar</th>
         
                         </tr>
                     </thead>
@@ -206,7 +220,17 @@
                         <td>%s</td>
                         <td><a href="%s"> Enlace a la imagen</a></td>
                         <td>%s</td>
-                    </tr>', $id, $direccion, $metros, $zona, $precio, $imagen, $propietario);
+
+                        <td><form method="GET" action="./.php">
+                        <input type="hidden" value="%s" name="modificarPiso">
+                        <button type="submit" class="btn btn-warning">Modificar</button>
+                        </form></td>
+
+                        <td><form method="GET" action="./administracion.php">
+                        <input type="hidden" value="%s" name="eliminarPiso">
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form></td>
+                    </tr>', $id, $direccion, $metros, $zona, $precio, $imagen, $propietario,$id, $id);
             }
             print(
                 '
