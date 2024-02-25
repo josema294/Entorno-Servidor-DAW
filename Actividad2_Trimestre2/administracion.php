@@ -61,14 +61,14 @@
 
         if (isset($_GET["busquedaUsuario"])) {
 
-            $sql = "SELECT * from USUARIOS WHERE usuario_id = {$_GET["busquedaUsuario"]}";
+            $sql = "SELECT * from usuarios WHERE usuario_id = {$_GET["busquedaUsuario"]}";
             $result = mysqli_query($conexion, $sql);
             $modoImpresion = "usuarios";
         }
 
         if (isset($_GET["listarUsuarios"])) {
 
-            $sql = "SELECT * from USUARIOS ";
+            $sql = "SELECT * from usuarios ";
             $result = mysqli_query($conexion, $sql);
             $modoImpresion = "usuarios";
         }
@@ -83,6 +83,18 @@
             $sql = "SELECT * from pisos";
             $result = mysqli_query($conexion, $sql);
             $modoImpresion = "pisos";
+        }
+
+        //Si se va a eliminar un usuario
+        if (isset($_GET["eliminaUsuario"])) {
+            $id = $_GET["eliminaUsuario"];
+            $sql = "DELETE FROM `usuarios` WHERE usuario_id =  $id ";
+            mysqli_query($conexion,$sql);
+
+            printf ('<div class="alert alert-danger" role="alert">
+            Se ha eliminado exitosamente el usuario con id: %s
+          </div>',$id);
+
         }
         
         //Pintamos los resultados para Usuarios
@@ -102,6 +114,8 @@
                             <th scope="col">Correo</th>
                             <th scope="col">Clave</th>
                             <th scope="col">Tipo</th>
+                            <th scope="col">Modificar</th>
+                            <th scope="col">Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -122,7 +136,18 @@
                         <td>%s</td>
                         <td>%s</td>
                         <td>%s</td>
-                    </tr>', $id, $nombre, $correo, $clave, $tipo);
+                        
+                        <td><form method="GET" action="./publicarUser.php">
+                        <input type="hidden" value="%s" name="modificarUsuario">
+                        <button type="submit" class="btn btn-warning">Modificar</button>
+                        </form></td>
+
+                        <td><form method="GET" action="./administracion.php">
+                        <input type="hidden" value="%s" name="eliminaUsuario">
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form></td>
+
+                    </tr>', $id, $nombre, $correo, $clave, $tipo, $id, $id);
             }
             print(
                 '

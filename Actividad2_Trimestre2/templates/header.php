@@ -7,7 +7,7 @@ switch ($_SESSION["tipoUsuario"]) {
         $tipo = "admin";
         break;
     case 'comprador':
-        $tipo = "comrpador";
+        $tipo = "comprador";
         break;
     case 'vendedor':
         $tipo = "vendedor";

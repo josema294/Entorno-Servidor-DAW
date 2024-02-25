@@ -4,10 +4,10 @@ final class DataBaseConection
 {
 
 //Datos
-private static $servername = "localhost";
-private static $username = "root";
-private static $password = "";
-private static $database = "inmobiliaria";
+private static $servername = "sql11.freesqldatabase.com";
+private static $username = "sql11686379";
+private static $password = "JhJ4hdzQxM";
+private static $database = "sql11686379";
 private static $conexion = null;
 
 public static function getConexion (){

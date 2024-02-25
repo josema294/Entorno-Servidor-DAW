@@ -31,8 +31,8 @@
         $clave =  $_POST["clave"];
 
         //Comprobamos que existan en la base de datos
-        $sqlCorreo = "SELECT correo FROM USUARIOS where correo = '$correo'";
-        $sqlClave = "SELECT clave FROM USUARIOS where correo = '$correo' and clave = '$clave'";
+        $sqlCorreo = "SELECT correo FROM usuarios where correo = '$correo'";
+        $sqlClave = "SELECT clave FROM usuarios where correo = '$correo' and clave = '$clave'";
 
         DataBaseConection::openConection();
         $conexion = DataBaseConection::getConexion();
