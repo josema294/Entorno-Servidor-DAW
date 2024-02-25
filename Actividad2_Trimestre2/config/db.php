@@ -20,7 +20,6 @@ public static function openConection() : bool{
 
     if (self::$conexion->connect_error) {
         die("Conexión fallida: " . self::$conexion->connect_error);
-        return false;
     } 
     return true;
 }
