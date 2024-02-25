@@ -112,7 +112,7 @@ function devuelveDescripcion() : String {
                 $descripcion =  devuelveDescripcion();
 
 
-                echo '<div class="col">'.cardCasa ($idpsio,$calle,$numero,$piso,$puerta,$cp,$metros,$zona,$precio,$imagen,$dueno,$descripcion).'</div>';
+                echo '<div class="col">'.cardCasa ($idpsio,$calle,$numero,$piso,$puerta,$cp,$metros,$zona,$precio,$imagen,$dueno,$descripcion,$puedeComprar).'</div>';
             }
 
             for ($i=6; $i < 9 ; $i++) { 
@@ -134,7 +134,7 @@ function devuelveDescripcion() : String {
                 $descripcion =  devuelveDescripcion();
 
 
-                echo '<div class="col">'.cardCasa ($idpsio,$calle,$numero,$piso,$puerta,$cp,$metros,$zona,$precio,$imagen,$dueno,$descripcion).'</div>';
+                echo '<div class="col">'.cardCasa ($idpsio,$calle,$numero,$piso,$puerta,$cp,$metros,$zona,$precio,$imagen,$dueno,$descripcion,$puedeComprar).'</div>';
             }
         
         

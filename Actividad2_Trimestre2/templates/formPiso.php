@@ -10,7 +10,6 @@ print_r($_POST);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    echo "entro en post";
     
     $calle = $_POST['calle'];
     $numero = $_POST['numero'];

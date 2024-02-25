@@ -73,7 +73,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    echo "has entrado en post con estos valores";
     print_r($_POST);
 
     $id= $_POST["id"];
@@ -84,13 +83,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $query = "UPDATE usuarios SET nombres = '$nombres', correo = '$correo', clave = '$clave', tipo_usuario = '$tipo_usuario' WHERE usuario_id = $id";
 
-    
-    echo $query;
-
-
     if (mysqli_query($conexion, $query)>0) {
 
-        echo "Estas dentro dentro dentro";
 
         echo ' <div class="alert alert-success" role="alert">
   Usuario modificado exitosamente!

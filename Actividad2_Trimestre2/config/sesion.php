@@ -5,7 +5,6 @@ if (session_status() == PHP_SESSION_NONE) {
    print_r($_SESSION);
 
    if (isset($_SESSION["idSesion"])) {
-    echo "hay sesion";
    } else {
     $_SESSION["idSesion"] = null;
     $_SESSION["logueado"] = null;
