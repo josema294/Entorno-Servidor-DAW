@@ -3,8 +3,7 @@ include("./config/db.php");
 
 //Primero de todo averiguar el id de usuario para que se guarde el piso con esa informacion
 
-DataBaseConection::openConection();
-$conexion = DataBaseConection::getConexion();
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 

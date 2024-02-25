@@ -221,7 +221,7 @@
                         <td><a href="%s"> Enlace a la imagen</a></td>
                         <td>%s</td>
 
-                        <td><form method="GET" action="./.php">
+                        <td><form method="GET" action="./publicaPiso.php">
                         <input type="hidden" value="%s" name="modificarPiso">
                         <button type="submit" class="btn btn-warning">Modificar</button>
                         </form></td>
