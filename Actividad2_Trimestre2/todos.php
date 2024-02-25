@@ -6,12 +6,10 @@
 
 <?php
 
-echo $logueado;
-echo $tipo;
 
 if (($logueado == 1 )&& (( $tipo == "comprador") || ($tipo == "admin") ) ){
     
-    include("./templates/grid3x3.php");
+    include("./templates/listadoPisos.php");
   
 } else{
 

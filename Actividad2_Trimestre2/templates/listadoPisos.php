@@ -8,11 +8,17 @@ else {
     DataBaseConection::openConection();
     $conexion = DataBaseConection::getConexion();
 }
-//Puedecomprar desactivado en el home
-$puedeComprar = false;
-//seleccion de pisos de alto valor paramostrar en el destacados
 
-$sql = "SELECT * FROM pisos WHERE PRECIO > 100000 ";
+//Vemos si somos comprador con permisos de compra
+
+$puedeComprar=false;
+if ($_SESSION["tipoUsuario"]=="comprador") {
+    $puedeComprar = true;
+}
+
+//seleccion todos los pisos
+
+$sql = "SELECT * FROM pisos ";
 
 $result = mysqli_query($conexion,$sql);
 
@@ -112,7 +118,7 @@ function devuelveDescripcion() : String {
                 $descripcion =  devuelveDescripcion();
 
 
-                echo '<div class="col">'.cardCasa ($idpsio,$calle,$numero,$piso,$puerta,$cp,$metros,$zona,$precio,$imagen,$dueno,$descripcion).'</div>';
+                echo '<div class="col">'.cardCasa ($idpsio,$calle,$numero,$piso,$puerta,$cp,$metros,$zona,$precio,$imagen,$dueno,$descripcion,$puedeComprar).'</div>';
             }
 
             for ($i=6; $i < 9 ; $i++) { 
@@ -134,7 +140,7 @@ function devuelveDescripcion() : String {
                 $descripcion =  devuelveDescripcion();
 
 
-                echo '<div class="col">'.cardCasa ($idpsio,$calle,$numero,$piso,$puerta,$cp,$metros,$zona,$precio,$imagen,$dueno,$descripcion).'</div>';
+                echo '<div class="col">'.cardCasa ($idpsio,$calle,$numero,$piso,$puerta,$cp,$metros,$zona,$precio,$imagen,$dueno,$descripcion,$puedeComprar).'</div>';
             }
         
         
