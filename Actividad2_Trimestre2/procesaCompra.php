@@ -11,7 +11,6 @@
     <?php
     // Verificamos si se ha enviado el formulario de compra
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        print_r($_POST);
         $idComprador = $_SESSION["usuario_id"];
         $idPiso = $_POST["Codigo_piso"];
         $precioFinal = (isset($_POST["precio_final"]))? $_POST["precio_final"] : "";

@@ -13,7 +13,7 @@
     } else{
 
         print "<div class=\"alert alert-danger\" role=\"alert\">
-        No existen permisos de acceso a esta seccion, necesitas ser un usuario comprador de viviendas!
+        No existen permisos de acceso a esta seccion, necesitas ser un usuario vendedor de viviendas!
     </div>";
     }
 

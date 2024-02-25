@@ -70,7 +70,6 @@
             $_SESSION["logueado"] = true;
             $_SESSION["tipoUsuario"] = $tipo;
             $_SESSION["usuario_id"] = $usuario_id;
-            print_r($_SESSION);
 
             DataBaseConection::closeConection();
 

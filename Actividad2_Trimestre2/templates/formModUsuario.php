@@ -73,8 +73,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    print_r($_POST);
-
     $id= $_POST["id"];
     $nombres = $_POST['nombres'];
     $correo = $_POST['correo'];
