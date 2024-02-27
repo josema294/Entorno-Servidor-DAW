@@ -1,7 +1,6 @@
 <?php include('./config/sesion.php');  ?>
 <?php include('./templates/head.php'); ?>
 <?php include('./templates/header.php'); ?>
-<?php include('./config/db.php'); ?>
 
 <main>
 
