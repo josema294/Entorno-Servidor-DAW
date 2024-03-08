@@ -34,7 +34,7 @@
         $password = "YTl2gJAD7Lt";
         $database = "if0_36061776_inmobiliaria";
     }
-    $conexion = mysqli_connect($servidor, $usuario, $passwordDB) or die("Fallo en la conexión");
+    $conexion = mysqli_connect($servidor, $usuario, $password) or die("Fallo en la conexión");
     mysqli_select_db($conexion, $database) or die("Imposible seleccionar BD");
     
     // Si estamos modificando un piso, recuperamos sus datos
