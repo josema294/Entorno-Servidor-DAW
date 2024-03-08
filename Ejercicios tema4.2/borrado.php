@@ -14,11 +14,11 @@
     <?php
 
 
-    $servidor = "127.0.0.1";
-    $usuario = "usuario";
-    $password = "usuario";
+    $servidor = "sql108.infinityfree.com";
+  $usuario = "if0_36061776";
+    $password = "YTl2gJAD7Lt";   
     $conexion = mysqli_connect($servidor, $usuario, $password) or die("Fallo conexion");
-    $boolConexion = mysqli_select_db($conexion, "inmobiliaria") or die("Imposible seleccionar BD");
+    $boolConexion = mysqli_select_db($conexion, "if0_36061776_inmobiliaria") or die("Imposible seleccionar BD");
 
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {

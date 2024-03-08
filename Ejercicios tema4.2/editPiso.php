@@ -20,7 +20,7 @@
     }
 
     // Conexión a la base de datos
-    $servidor = "127.0.0.1";
+    $servidor = "sql108.infinityfree.com";
     $usuarioDB = "usuario";
     $passwordDB = "usuario";
     $conexion = mysqli_connect($servidor, $usuarioDB, $passwordDB) or die("Fallo en la conexión");
