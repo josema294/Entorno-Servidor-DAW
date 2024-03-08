@@ -14,11 +14,23 @@
     <?php
 
 
-    $servidor = "sql108.infinityfree.com";
-    $usuario = "if0_36061776";
-    $password = "YTl2gJAD7Lt";   
+    //Cambiar el valor de {$entornoPruebas} a false para entornos de produccion, y true para entornos de desarrollo y pruebas
+        include ('./config/config.php');
+    $entornoPruebas = Pruebas::entornoPruebas();
+
+    if ($entornoPruebas) {
+        $servidor = "localhost";
+        $usuario = "root";
+        $password = "";
+        $database = "inmobiliaria";
+    }else {
+        $servidor = "sql108.infinityfree.com";
+        $usuario = "if0_36061776";
+        $password = "YTl2gJAD7Lt";
+        $database = "if0_36061776_inmobiliaria";
+    }
     $conexion = mysqli_connect($servidor, $usuario, $password) or die("Fallo conexion");
-    $boolConexion = mysqli_select_db($conexion, "if0_36061776_inmobiliaria") or die("Imposible seleccionar BD");
+    $boolConexion = mysqli_select_db($conexion,$database) or die("Imposible seleccionar BD");
 
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {

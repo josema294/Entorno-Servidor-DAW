@@ -12,18 +12,31 @@
 
     <?php
 
-    $servidor = "sql108.infinityfree.com";
-  $usuario = "if0_36061776";
-    $password = "YTl2gJAD7Lt";   
+    //Cambiar el valor de {$entornoPruebas} a false para entornos de produccion, y true para entornos de desarrollo y pruebas
+        include ('./config/config.php');
+    $entornoPruebas = Pruebas::entornoPruebas();
 
-    $conexion = mysqli_connect($servidor, $usuario, $password) or die("Fallo conexion");
-    $boolConexion = mysqli_select_db($conexion, "if0_36061776_inmobiliaria") or die("Imposible seleccionar BD");
+    if ($entornoPruebas) {
+        $servidor = "localhost";
+        $usuario = "root";
+        $password = "";
+        $database = "inmobiliaria";
+    }else {
+        $servidor = "sql108.infinityfree.com";
+        $usuario = "if0_36061776";
+        $password = "YTl2gJAD7Lt";
+        $database = "if0_36061776_inmobiliaria";
+    }
+
+
+    $conexion = mysqli_connect($servidor, $usuario, $password, ) or die("Fallo conexion");
+    $boolConexion = mysqli_select_db($conexion, $database) or die("Imposible seleccionar BD");
 
     if (!$boolConexion) {
         echo "<h1>Error en el servidor</h1>";
     }
 
-    $UsuariosResulr = mysqli_query($conexion, "select * from usuario");
+    $UsuariosResulr = mysqli_query($conexion, "select * from usuarios");
     $numeroFilas = mysqli_num_rows($UsuariosResulr);
 
     //Creamos tarjetas de usuario:
@@ -176,7 +189,7 @@
                             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 
                                 $buscado = $_POST["buscado"];
-                                $sql = "Select * from usuario where nombres = '$buscado'";
+                                $sql = "Select * from usuarios where nombres = '$buscado'";
                                 
                                 $result = mysqli_query($conexion,$sql);
                                 
@@ -215,5 +228,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
+
 
 </html>

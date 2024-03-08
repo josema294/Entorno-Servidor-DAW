@@ -19,12 +19,23 @@
         $id = $_GET["Codigo_piso"];
     }
 
-    // Conexión a la base de datos
-    $servidor = "sql108.infinityfree.com";
-    $usuarioDB = "usuario";
-    $passwordDB = "usuario";
-    $conexion = mysqli_connect($servidor, $usuarioDB, $passwordDB) or die("Fallo en la conexión");
-    mysqli_select_db($conexion, "inmobiliaria") or die("Imposible seleccionar BD");
+    //Cambiar el valor de {$entornoPruebas} a false para entornos de produccion, y true para entornos de desarrollo y pruebas
+        include ('./config/config.php');
+    $entornoPruebas = Pruebas::entornoPruebas();
+
+    if ($entornoPruebas) {
+        $servidor = "localhost";
+        $usuario = "root";
+        $password = "";
+        $database = "inmobiliaria";
+    }else {
+        $servidor = "sql108.infinityfree.com";
+        $usuario = "if0_36061776";
+        $password = "YTl2gJAD7Lt";
+        $database = "if0_36061776_inmobiliaria";
+    }
+    $conexion = mysqli_connect($servidor, $usuario, $passwordDB) or die("Fallo en la conexión");
+    mysqli_select_db($conexion, $database) or die("Imposible seleccionar BD");
     
     // Si estamos modificando un piso, recuperamos sus datos
     if ($modificando) {
