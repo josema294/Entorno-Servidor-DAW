@@ -21,7 +21,7 @@ class LoginController
             if (Auth::attempt($credentials)) {
                 $request->session()->regenerate();
                 // Redireccionar al usuario autenticado a la página que desees
-                return redirect()->intended('productos');
+                return redirect()->intended('products');
             }
 
             // Si la autenticación falla, enviar de nuevo al login con un mensaje de error
@@ -32,6 +32,12 @@ class LoginController
 
         // Mostrar la vista de login si no es una petición POST
         return view('login');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/login');
     }
 }
 
