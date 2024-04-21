@@ -16,6 +16,11 @@ Route::post('/products', [ProductController::class, 'store'])->name('products.st
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+Route::fallback(function () {
+    return redirect()->route('products');
+});
+
+
 
 
 
