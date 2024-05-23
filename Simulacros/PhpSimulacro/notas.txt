@@ -1,0 +1,10 @@
+Marcos:5
+Pepe:8
+Figo:6
+Figo:6
+Figo:6
+Raul:1
+Raul:1
+Mar:10
+Lozano:5
+Perez:9
