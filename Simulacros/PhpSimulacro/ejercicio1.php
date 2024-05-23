@@ -18,6 +18,7 @@ Después de cada acción, hacer un enlace para volver el menú principal.
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style1.css">
     <title>Document</title>
 </head>
 
@@ -48,7 +49,6 @@ Después de cada acción, hacer un enlace para volver el menú principal.
 
     use PhpParser\Builder\Class_;
     use PHPUnit\Framework\Constraint\FileExists;
-
     use function PHPUnit\Framework\fileExists;
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
