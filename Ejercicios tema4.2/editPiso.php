@@ -21,20 +21,6 @@
 
     //Cambiar el valor de {$entornoPruebas} a false para entornos de produccion, y true para entornos de desarrollo y pruebas
         include ('./config/config.php');
-    $entornoPruebas = Pruebas::entornoPruebas();
-
-    if ($entornoPruebas) {
-        $servidor = "localhost";
-        $usuario = "root";
-        $password = "";
-        $database = "inmobiliaria";
-    }else {
-        $servidor = "sql108.infinityfree.com";
-        $usuario = "if0_36061776";
-        $password = "YTl2gJAD7Lt";
-        $database = "if0_36061776_inmobiliaria";
-    }
-    $conexion = mysqli_connect($servidor, $usuario, $password) or die("Fallo en la conexión");
     mysqli_select_db($conexion, $database) or die("Imposible seleccionar BD");
     
     // Si estamos modificando un piso, recuperamos sus datos
@@ -150,6 +136,7 @@
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<?php include_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php'); ?>
 </body>
 
 </html>

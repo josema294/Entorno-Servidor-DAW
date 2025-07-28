@@ -39,6 +39,7 @@ echo "Todos los vehículos han hecho un total de ".Vehiculo::getKmTotales()." Km
 
 
     
+<?php include_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php'); ?>
 </body>
 </html>
 

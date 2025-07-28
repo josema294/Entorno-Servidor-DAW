@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inmobiliaria Ficticia</title>
+    <!-- CDN de Bootstrap CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<header>
+    <!-- Navbar con Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Inmobiliaria Ficticia</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./usuarios.php">Usuarios</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="./pisos.php">Pisos</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="./about.html">Sobre Nosotros</a>
+                </li>
+               
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Sección Hero con Bootstrap -->
+<section class="jumbotron jumbotron-fluid text-center bg-light">
+    <div class="container">
+        <h1 class="display-4">Encuentra tu lugar ideal</h1>
+        <p class="lead">Tu hogar soñado te está esperando. Explora las mejores propiedades en el mercado con nosotros.</p>
+        <a href="./pisos.php" class="btn btn-primary">Explorar Pisos</a>
+    </div>
+</section>
+
+<!-- Sección de Propiedades Destacadas -->
+<section class="container my-5">
+    <h2 class="text-center mb-3">Propiedades Destacadas</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="img/casa1.webp" class="card-img-top" alt="Imagen de Propiedad">
+                <div class="card-body">
+                    <h5 class="card-title">Una casa moderna y lujosa:</h5>
+                    <p class="card-text">Exhibe líneas arquitectónicas elegantes, una mezcla de vidrio y madera en su fachada, rodeada de un jardín paisajístico.</p>
+                    <a href="./pisos.php" class="btn btn-primary">Más Detalles</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="img/casa2.webp" class="card-img-top" alt="Imagen de Propiedad">
+                <div class="card-body">
+                    <h5 class="card-title">Una casa tradicional y acogedora: </h5>
+                    <p class="card-text">Presenta un tejado a dos aguas, fachada de ladrillo y un porche delantero encantador, enmarcado por un jardín frondoso.</p>
+                    <a href="./pisos.php" class="btn btn-primary">Más Detalles</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="img/casa3.webp"card-img-top" alt="Imagen de Propiedad">
+                <div class="card-body">
+                    <h5 class="card-title">Una villa de lujo frente al mar:</h5>
+                    <p class="card-text">Destaca por su diseño moderno con terrazas amplias y barandillas de vidrio, ofreciendo vistas impresionantes al océano.</p>
+                    <a href="./pisos.php" class="btn btn-primary">Más Detalles</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección Sobre Nosotros -->
+<section class="container my-5">
+    <h2 class="text-center mb-3">Sobre Nosotros</h2>
+    <p class="text-center">Con más de 10 años de experiencia en el mercado, Inmobiliaria Ficticia se dedica a encontrar el hogar perfecto para cada cliente.</p>
+</section>
+
+
+
+<!-- Footer -->
+<footer class="text-center py-4 bg-light">
+    <p>&copy; 2024 Inmobiliaria Ficticia. Nigun derecho reservado.</p>
+</footer>
+  <?php include_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php'); ?>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

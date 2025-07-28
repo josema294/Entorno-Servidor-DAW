@@ -57,5 +57,5 @@ if(isset($_POST["haciendoModificacion"]) ) {
 <!-- Ejemplo de botón con enlace en Bootstrap 5 -->
 <a href="./administracion.php" class="btn btn-primary" role="button">vovler al panel de administracion</a>
 
-<?php include('./templates/footer.php'); ?>
+<?php include_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php'); ?>
 

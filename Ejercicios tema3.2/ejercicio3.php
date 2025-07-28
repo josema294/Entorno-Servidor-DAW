@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +14,6 @@
 
 <?php
 
-session_start();
-
-// print_r($_SESSION);
 
 $contadorStart = 1;
 
@@ -32,5 +33,6 @@ if (!isset($_SESSION['contador'])) {
 print($_SESSION['contador']);
 ?>
     
+<?php include_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php'); ?>
 </body>
 </html>

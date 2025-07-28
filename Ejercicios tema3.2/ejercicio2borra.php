@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +13,6 @@
 <body>
 
 <?php
-
-session_start();
 
 if (isset($_POST["borrar"])) {
 
@@ -35,5 +37,6 @@ if (isset($_POST["borrar"])) {
 
 
     
+<?php include_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php'); ?>
 </body>
 </html>

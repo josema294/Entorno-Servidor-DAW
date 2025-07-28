@@ -33,5 +33,6 @@ if(isset($_POST["horas"])){
 ?>
 
     
+<?php include_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php'); ?>
 </body>
 </html>

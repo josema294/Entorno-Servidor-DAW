@@ -40,5 +40,6 @@ printf ('<h3> Como podemos comprobar, el numero mas alto ha sido el %d que sale 
 
 ?>
     
+<?php include_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php'); ?>
 </body>
 </html>

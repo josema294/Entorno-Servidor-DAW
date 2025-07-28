@@ -1,0 +1,11 @@
+
+services:
+  entorno_servidor:
+    build: .
+    container_name: entorno_servidor
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html/
+    env_file:
+      - .env.local

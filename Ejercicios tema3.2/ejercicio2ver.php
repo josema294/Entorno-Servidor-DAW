@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +13,6 @@
 <body>
 
 <?php
-session_start();
 
 $apellido="";
 $nombre="";
@@ -39,5 +42,6 @@ print(" <h3> Nombre: {$nombre} <br> Apellido: {$apellido} </h3>")
 
 
     
+<?php include_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php'); ?>
 </body>
 </html>

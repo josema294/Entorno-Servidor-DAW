@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,9 +33,8 @@ Tiene que haber un enlace en cada web para volver al programa principal. -->
 
 </nav>
 
-<?php
-session_start();
-?>
+
     
+<?php include_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php'); ?>
 </body>
 </html>

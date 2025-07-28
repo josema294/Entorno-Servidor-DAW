@@ -51,13 +51,14 @@
         <div class="alert <?php echo isset($resultado) && $resultado ? 'alert-success' : 'alert-danger'; ?>" role="alert">
             <?php echo $mensaje; ?>
         </div>
-        <a href="./home.html" class="btn btn-primary">Volver a Home</a>
+        <a href="./home.php" class="btn btn-primary">Volver a Home</a>
     </div>
 
     <!-- Opcional: Bootstrap JS y dependencias -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<?php include_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php'); ?>
 </body>
 
 </html>

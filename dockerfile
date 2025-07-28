@@ -1,7 +1,11 @@
-# Usamos una imagen oficial que ya tiene PHP y el servidor web Apache.
-# Puedes cambiar '8.2' por la versión de PHP que uses (ej: 8.1, 8.0, 7.4).
+# Usamos la imagen oficial de PHP con Apache
 FROM php:8.2-apache
 
-# Copiamos todo lo que está en esta carpeta (tu código)
-# dentro del directorio web del contenedor.
+# Instala la extensión mysqli para conectar con la base de datos
+RUN docker-php-ext-install mysqli
+
+# Opcional pero recomendado: habilita el módulo rewrite de Apache para URLs amigables
+RUN a2enmod rewrite
+
+# Copia el código de tu aplicación al directorio web del contenedor
 COPY . /var/www/html/

@@ -26,5 +26,6 @@ for ($i=320 ; $i >= 160 ; $i-=20) {
 
 ?>
     
+<?php include_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php'); ?>
 </body>
 </html>

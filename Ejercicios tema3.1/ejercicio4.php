@@ -86,6 +86,7 @@
             <input type="reset" value="Borrar">
         </div>
     </form>
+<?php include_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php'); ?>
 </body>
 
 </html>

@@ -13,22 +13,7 @@
     <?php
     //Cambiar el valor de {$entornoPruebas} a false para entornos de produccion, y true para entornos de desarrollo y pruebas
         include ('./config/config.php');
-    $entornoPruebas = Pruebas::entornoPruebas();
 
-
-    if ($entornoPruebas) {
-        $servidor = "localhost";
-        $usuario = "root";
-        $password = "";
-        $database = "inmobiliaria";
-    }else {
-        $servidor = "sql108.infinityfree.com";
-        $usuario = "if0_36061776";
-        $password = "YTl2gJAD7Lt";
-        $database = "if0_36061776_inmobiliaria";
-    }  
-
-    $conexion = mysqli_connect($servidor, $usuario, $password) or die("Fallo conexion");
     $boolConexion = mysqli_select_db($conexion, $database) or die("Imposible seleccionar BD");
 
     if (!$boolConexion) {
@@ -37,6 +22,9 @@
 
     $pisosResul = mysqli_query($conexion, "select * from pisos");
     $numeroFilas = mysqli_num_rows($pisosResul);
+
+
+
 
     //Creamos tarjetas de pisos:
 
@@ -96,14 +84,14 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="./home.html">Inmobiliaria Ficticia</a>
+            <a class="navbar-brand" href="./home.php">Inmobiliaria Ficticia</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="./home.html">Inicio</a>
+                        <a class="nav-link" href="./home.php">Inicio</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="usuarios.php">Usuarios <span class="sr-only"></span></a>
@@ -234,11 +222,7 @@
 
     </main>
 
-    <footer class="bg-dark text-white py-4 text-center">
-        <div class="container">
-            &copy; 2024 Inmobiliaria Ficticia. Todos los derechos reservados.
-        </div>
-    </footer>
+    <?php include_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php'); ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
