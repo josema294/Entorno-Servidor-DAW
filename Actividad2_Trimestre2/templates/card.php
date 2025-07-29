@@ -1,18 +1,29 @@
 <?php
  function cardCasa ($idpsio,$calle,$numero,$piso,$puerta,$cp,$metros,$zona,$precio,$imagen,$dueno,$descripcion,$puedeComprar) {
-  if ($puedeComprar) {
+  // Escapar todas las variables para prevenir XSS
+  $idpsio = htmlspecialchars($idpsio);
+  $calle = htmlspecialchars($calle);
+  $numero = htmlspecialchars($numero);
+  $piso = htmlspecialchars($piso);
+  $puerta = htmlspecialchars($puerta);
+  $cp = htmlspecialchars($cp);
+  $metros = htmlspecialchars($metros);
+  $zona = htmlspecialchars($zona);
+  $precio = htmlspecialchars($precio);
+  $imagen = htmlspecialchars($imagen);
+  $dueno = htmlspecialchars($dueno);
+  $descripcion = htmlspecialchars($descripcion);
 
+  if ($puedeComprar) {
     $botonCompra = ' <form action="procesaCompra.php" method="post">
-    <input type="hidden" name="Codigo_piso" value=" '. $idpsio .'" ></input>
+    <input type="hidden" name="Codigo_piso" value="'. $idpsio .'" ></input>
     <button type="submit" class="btn btn-primary text-center" name="comprar">Comprar</button>
   </form>';
   }else{
     $botonCompra="" ;
   }
 
-  
-
-    print ('
+  print ('
 
     <div class="card" style="width: 18rem;">
     <img src="'. $imagen .'" class="card-img-top" alt="...">

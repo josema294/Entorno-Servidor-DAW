@@ -1,38 +1,31 @@
-<?php include('./config/sesion.php');  ?>
-<?php include('./templates/head.php'); ?>
-<?php include('./templates/header.php'); ?>
+<?php
+include('./config/sesion.php');
+
+// Access control check: Only admin users can access this page
+if (!isset($_SESSION["tipoUsuario"]) || $_SESSION["tipoUsuario"] !== "admin") {
+    header("Location: ./home.php"); // Redirect non-admin users
+    exit();
+}
+
+include('./templates/head.php');
+include('./templates/header.php');
+
+?>
 
 <main>
 
     <?php
-
-    if ( ($tipo == "admin")  ){
-        print_r($_GET);
-       if (isset($_GET["modificarUsuario"])) {
-        echo"1";
-
+    // Determine which form to include based on GET/POST parameters
+    if (isset($_GET["modificarUsuario"])) {
+        // If 'modificarUsuario' is set in GET, it means we are loading the modification form
         include('./templates/formModUsuario.php');
-        
-    }elseif (($_SERVER["REQUEST_METHOD"]=="GET")&&(!isset($_GET["modificarUsuario"]))){
-        echo"2";
+    } elseif ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
+        // If it's a POST request and 'id' is set, it means the modification form was submitted
+        include('./templates/formModUsuario.php');
+    } else {
+        // Otherwise, it's for creating a new user (GET request without 'modificarUsuario' or POST without 'id')
         include('./templates/formUsuario.php');
     }
-    elseif (($_SERVER["REQUEST_METHOD"]=="POST")&& !isset($_POST["id"]) ) {
-        echo"3";
-        include('./templates/formUsuario.php');
-    }
-    
-    elseif ($_SERVER["REQUEST_METHOD"]=="POST") {
-        include('./templates/formModUsuario.php');
-    }
-    } else{
-        echo"otro";
-
-        print "<div class=\"alert alert-danger\" role=\"alert\">
-        No existen permisos de acceso a esta seccion, necesitas ser un usuario administrador.
-    </div>";
-    }
-
     ?>
 
 </main>

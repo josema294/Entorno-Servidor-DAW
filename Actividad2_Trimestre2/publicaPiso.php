@@ -1,33 +1,25 @@
-<?php include('./config/sesion.php');  ?>
-<?php include('./templates/head.php'); ?>
-<?php include('./templates/header.php'); ?>
+<?php
+include('./config/sesion.php');
+
+// Access control check: Only 'vendedor' or 'admin' users can access this page
+if (!isset($_SESSION["logueado"]) || $_SESSION["logueado"] !== true || (!isset($_SESSION["tipoUsuario"]) || ($_SESSION["tipoUsuario"] !== "vendedor" && $_SESSION["tipoUsuario"] !== "admin"))) {
+    header("Location: ./home.php"); // Redirect unauthorized users
+    exit();
+}
+
+include('./templates/head.php');
+include('./templates/header.php');
+
+?>
 
 <main>
 
     <?php
-
-
-
-    if (($logueado == 1 ) && (( $tipo == "vendedor") || ($tipo == "admin") ) ){
-        
-        if (isset($_GET["modificarPiso"])) {
-            include('./templates/formModPiso.php');
-        }
-        
-        else{
-
-            include('./templates/formPiso.php');
-        }
-
-        
-    
-    }else{
-
-        print "<div class=\"alert alert-danger\" role=\"alert\">
-        No existen permisos de acceso a esta seccion, necesitas ser un usuario vendedor de viviendas!
-    </div>";
+    if (isset($_GET["modificarPiso"])) {
+        include('./templates/formModPiso.php');
+    } else {
+        include('./templates/formPiso.php');
     }
-
     ?>
 
 </main>

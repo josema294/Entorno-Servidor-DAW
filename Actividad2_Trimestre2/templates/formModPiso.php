@@ -1,88 +1,105 @@
 <?php
+require_once __DIR__ . '/../config/db.php'; // Ruta corregida y más robusta
 
+$pisoData = null; // Variable para almacenar los datos del piso
 
-//Primero de todo averiguar el id de usuario para que se guarde el piso con esa informacion
+if (isset($_GET["modificarPiso"])) {
+    $idPiso = filter_var($_GET["modificarPiso"], FILTER_VALIDATE_INT);
 
+    if ($idPiso === false) {
+        echo '<div class="alert alert-danger" role="alert">ID de piso no válido.</div>';
+    } else {
+        try {
+            DatabaseConnection::openConnection();
+            $conexion = DatabaseConnection::getConnection();
 
+            // Seleccionamos el piso que queremos modificar usando sentencia preparada
+            $sql = "SELECT * FROM pisos WHERE Codigo_piso = ?";
+            $stmt = mysqli_prepare($conexion, $sql);
+            mysqli_stmt_bind_param($stmt, "i", $idPiso);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
 
-if (isset ($_GET["modificarPiso"])) {
+            if ($result && mysqli_num_rows($result) == 1) {
+                $pisoData = mysqli_fetch_assoc($result);
+            } else {
+                echo '<div class="alert alert-warning" role="alert">Piso no encontrado.</div>';
+            }
 
-    echo"modificando";
+            mysqli_stmt_close($stmt);
+            DatabaseConnection::closeConnection();
 
-    $idPiso = $_GET["modificarPiso"];
-    //Seleccionamos el piso que queremos modificar
+        } catch (Exception $e) {
+            echo '<div class="alert alert-danger" role="alert">Error del sistema al cargar el piso.</div>';
+            // error_log($e->getMessage());
+        }
+    }
+}
 
-    DataBaseConnection::openConection();
-    $conexion = DataBaseConnection::getConexion();
+if ($pisoData) {
+    // Teniendo los datos los usamos para rellenar el formulario
+    $idPiso = htmlspecialchars($pisoData['Codigo_piso']);
+    $calle = htmlspecialchars($pisoData['calle']);
+    $numero = htmlspecialchars($pisoData['numero']);
+    $piso = htmlspecialchars($pisoData['piso']);
+    $puerta = htmlspecialchars($pisoData['puerta']);
+    $cp = htmlspecialchars($pisoData['cp']);
+    $metros = htmlspecialchars($pisoData['metros']);
+    $zona = htmlspecialchars($pisoData['zona']);
+    $precio = htmlspecialchars($pisoData['precio']);
+    $imagen = htmlspecialchars($pisoData['imagen']);
+    $usuario_id = htmlspecialchars($pisoData['usuario_id']);
 
-    $sql = "SELECT * FROM pisos where Codigo_piso= $idPiso";
-    $result = mysqli_query($conexion,$sql);
-    $resultAsocc = mysqli_fetch_assoc($result);
+    // El formulario se imprime solo si se encontraron datos del piso
+?>
 
-    $idPiso = $resultAsocc['Codigo_piso'];
-    $calle = $resultAsocc['calle'];
-    $numero = $resultAsocc['numero'];
-    $piso = isset($resultAsocc['piso']) ? $resultAsocc['piso'] : null; // Opcional
-    $puerta = isset($resultAsocc['puerta']) ? $resultAsocc['puerta'] : null; // Opcional
-    $cp = $resultAsocc['cp'];
-    $metros = $resultAsocc['metros'];
-    $zona = isset($resultAsocc['zona']) ? $resultAsocc['zona'] : null; // Opcional
-    $precio = $resultAsocc['precio'];
-    $imagen = $resultAsocc['imagen'];
-    $usuario_id = $resultAsocc['usuario_id'];
-
-    //Teniendo los datos los usamos para rellenar el fomulario
-    
-
-    printf('
-    
-    <div class="container mt-5">
+<div class="container mt-5">
   <div class="row justify-content-center">
      
     <div class="col-md-6">
-    <div class="h2">Publica tu piso</div>
+    <div class="h2">Modificar Piso</div>
     <form action="./resolucionPiso.php" method="POST" >
   <div class="mb-3">
     <label for="calle" class="form-label">Calle</label>
-    <input type="text" class="form-control" id="calle" name="calle" value="%s" required>
+    <input type="text" class="form-control" id="calle" name="calle" value="<?php echo $calle; ?>" required>
   </div>
   <div class="mb-3">
     <label for="numero" class="form-label">Número</label>
-    <input type="number" class="form-control" id="numero" name="numero" value="%s" required>
+    <input type="number" class="form-control" id="numero" name="numero" value="<?php echo $numero; ?>" required>
   </div>
   <div class="mb-3">
     <label for="piso" class="form-label">Piso</label>
-    <input type="number" class="form-control" id="piso" name="piso" value="%s">
+    <input type="number" class="form-control" id="piso" name="piso" value="<?php echo $piso; ?>">
   </div>
   <div class="mb-3">
     <label for="puerta" class="form-label">Puerta</label>
-    <input type="text" class="form-control" id="puerta" name="puerta" value="%s">
+    <input type="text" class="form-control" id="puerta" name="puerta" value="<?php echo $puerta; ?>">
   </div>
   <div class="mb-3">
     <label for="cp" class="form-label">Código Postal</label>
-    <input type="number" class="form-control" id="cp" name="cp" value="%s" required>
+    <input type="number" class="form-control" id="cp" name="cp" value="<?php echo $cp; ?>" required>
   </div>
   <div class="mb-3">
     <label for="metros" class="form-label">Metros Cuadrados</label>
-    <input type="number" class="form-control" id="metros" name="metros" value="%s" required>
+    <input type="number" class="form-control" id="metros" name="metros" value="<?php echo $metros; ?>" required>
   </div>
   <div class="mb-3">
     <label for="zona" class="form-label">Zona</label>
-    <input type="text" class="form-control" id="zona" name="zona" value="%s">
+    <input type="text" class="form-control" id="zona" name="zona" value="<?php echo $zona; ?>">
   </div>
   <div class="mb-3">
     <label for="precio" class="form-label">Precio</label>
-    <input type="number" step="0.01" class="form-control" id="precio" name="precio" value="%s" required>
+    <input type="number" step="0.01" class="form-control" id="precio" name="precio" value="<?php echo $precio; ?>" required>
   </div>
   <div class="mb-3">
-    <label for="precio" class="form-label">Propietario</label>
-    <input type="number" step="0.01" class="form-control" id="userId" name="usuario_id" value="%s" required>
+    <label for="userId" class="form-label">Propietario</label>
+    <input type="number" class="form-control" id="userId" name="usuario_id" value="<?php echo $usuario_id; ?>" required>
   </div>
   <div class="mb-3">
     <label for="imagen" class="form-label">Imagen</label>
-    <input type="url" class="form-control" id="imagen" name="imagen" value="%s" >
-    <input type="hidden" class="form-control" id="imagen" name="haciendoModificacion" value="haciendoModificacion" >
-    <input type="hidden" class="form-control" id="idPiso" name="idPiso" value="%s" >
+    <input type="url" class="form-control" id="imagen" name="imagen" value="<?php echo $imagen; ?>" >
+    <input type="hidden" name="haciendoModificacion" value="haciendoModificacion" >
+    <input type="hidden" name="idPiso" value="<?php echo $idPiso; ?>" >
   </div>
   <div class="mb-3">
     
@@ -93,12 +110,9 @@ if (isset ($_GET["modificarPiso"])) {
     </div>
   </div>
 </div>
-    
-    ',$calle, $numero,$piso,$puerta,$cp, $metros,$zona,$precio,$usuario_id,$imagen,$idPiso);
 
-}
-
-
+<?php
+} // Cierre del if ($pisoData)
 ?>
 
 
