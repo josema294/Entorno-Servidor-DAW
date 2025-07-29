@@ -15,20 +15,8 @@
 
 
     //Cambiar el valor de {$entornoPruebas} a false para entornos de produccion, y true para entornos de desarrollo y pruebas
-    
+    include ('./config/config.php');
 
-    if ($entornoPruebas) {
-        $servidor = "localhost";
-        $usuario = "root";
-        $password = "";
-        $database = "inmobiliaria";
-    }else {
-        $servidor = "sql108.infinityfree.com";
-        $usuario = "if0_36061776";
-        $password = "YTl2gJAD7Lt";
-        $database = "if0_36061776_inmobiliaria";
-    }
-    $conexion = mysqli_connect($servidor, $usuario, $password) or die("Fallo conexion");
     $boolConexion = mysqli_select_db($conexion,$database) or die("Imposible seleccionar BD");
 
 

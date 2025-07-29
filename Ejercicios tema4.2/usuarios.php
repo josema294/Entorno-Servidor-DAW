@@ -135,7 +135,7 @@
                     <div id="collapseListado" class="accordion-collapse collapse" aria-labelledby="headingListado" data-bs-parent="#accordionListado">
                         <div class="accordion-body">
                             <!-- resultado listado de usuarios -->
-
+                        
                             <?php
 
                             for ($i = 0; $i < $numeroFilas; $i++) {
@@ -175,17 +175,26 @@
                             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 
                                 $buscado = $_POST["buscado"];
-                                $sql = "Select * from usuarios where nombres = '$buscado'";
+                                $sql = "Select * from usuarios where nombres like '%$buscado%'";
                                 
                                 $result = mysqli_query($conexion,$sql);
+
+                                $numeroFilas = mysqli_num_rows($result);
+
+                                echo "<h2>Resultados de la búsqueda: {$numeroFilas} encontrado(s)</h2>";
                                 
                                 for ($i=0; $i <mysqli_num_rows($result) ; $i++) { 
 
+                                    
+
                                     $fila = mysqli_fetch_assoc($result);
+                                    
                                     $nombres = $fila["nombres"];
                                     $correo = $fila["correo"];
                                     $clave = $fila["clave"];
                                     $id = $fila["usuario_id"];
+
+                                    
     
                                     tarjeta($nombres, $correo, $clave, $id);
                                     
@@ -207,6 +216,7 @@
     </main>
 
     <?php include_once($_SERVER['DOCUMENT_ROOT'] . '/footer.php'); ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 
