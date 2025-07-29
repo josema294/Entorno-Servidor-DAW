@@ -25,7 +25,11 @@
     
     // Si estamos modificando un piso, recuperamos sus datos
     if ($modificando) {
-        $consulta = mysqli_query($conexion, "SELECT * FROM pisos WHERE Codigo_piso='$id'");
+        $sql = "SELECT * FROM pisos WHERE Codigo_piso = ?";
+        $stmt = mysqli_prepare($conexion, $sql);
+        mysqli_stmt_bind_param($stmt, "s", $id);
+        mysqli_stmt_execute($stmt);
+        $consulta = mysqli_stmt_get_result($stmt);
         $piso = mysqli_fetch_assoc($consulta);
     } else {
         $piso = null;

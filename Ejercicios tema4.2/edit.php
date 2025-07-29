@@ -35,7 +35,11 @@
 
     if ($modificando) {
 
-        $usuariosResulr = mysqli_query($conexion, "select * from usuarios where usuario_id='{$id}' ");
+        $sql = "SELECT * FROM usuarios WHERE usuario_id = ?";
+        $stmt = mysqli_prepare($conexion, $sql);
+        mysqli_stmt_bind_param($stmt, "i", $id);
+        mysqli_stmt_execute($stmt);
+        $usuariosResulr = mysqli_stmt_get_result($stmt);
         $tempResult = mysqli_fetch_assoc($usuariosResulr);
         $nombre = $tempResult["nombres"];
         $correo = $tempResult["correo"];

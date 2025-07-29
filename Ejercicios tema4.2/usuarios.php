@@ -174,14 +174,14 @@
 
                             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 
-                                $buscado = $_POST["buscado"];
-                                $sql = "Select * from usuarios where nombres like '%$buscado%'";
-                                
-                                $result = mysqli_query($conexion,$sql);
+                                $buscado = "%{$_POST['buscado']}%";
+                                $sql = "SELECT * FROM usuarios WHERE nombres LIKE ?";
+                                $stmt = mysqli_prepare($conexion, $sql);
+                                mysqli_stmt_bind_param($stmt, "s", $buscado);
+                                mysqli_stmt_execute($stmt);
+                                $result = mysqli_stmt_get_result($stmt);
 
                                 $numeroFilas = mysqli_num_rows($result);
-
-                                echo "<h2>Resultados de la búsqueda: {$numeroFilas} encontrado(s)</h2>";
                                 
                                 for ($i=0; $i <mysqli_num_rows($result) ; $i++) { 
 

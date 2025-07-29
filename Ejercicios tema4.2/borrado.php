@@ -28,8 +28,10 @@
         }
 
         
-        $sql= "DELETE FROM usuario WHERE usuario_id =  '$id' ";
-        $borrado = mysqli_execute_query($conexion,$sql);
+        $sql = "DELETE FROM usuario WHERE usuario_id = ?";
+        $stmt = mysqli_prepare($conexion, $sql);
+        mysqli_stmt_bind_param($stmt, "i", $id);
+        $borrado = mysqli_stmt_execute($stmt);
 
 
     }

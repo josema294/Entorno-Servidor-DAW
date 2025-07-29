@@ -30,14 +30,15 @@
         }
 
         if (isset($id)) {
-            $sql = "UPDATE usuario SET nombres = '$nombre', correo = '$email', clave = '$clave' WHERE usuario_id = $id";
-
-            mysqli_query($conexion, $sql);
+            $sql = "UPDATE usuarios SET nombres = ?, correo = ?, clave = ? WHERE usuario_id = ?";
+            $stmt = mysqli_prepare($conexion, $sql);
+            mysqli_stmt_bind_param($stmt, "sssi", $nombre, $email, $clave, $id);
+            mysqli_stmt_execute($stmt);
         } else {
-
-            $sql = "INSERT INTO  usuario (nombres, correo, clave) VALUES ('$nombre','$email','$clave')";
-
-            mysqli_query($conexion, $sql);
+            $sql = "INSERT INTO usuarios (nombres, correo, clave) VALUES (?, ?, ?)";
+            $stmt = mysqli_prepare($conexion, $sql);
+            mysqli_stmt_bind_param($stmt, "sss", $nombre, $email, $clave);
+            mysqli_stmt_execute($stmt);
         }
     }
     ?>

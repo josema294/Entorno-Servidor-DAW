@@ -187,10 +187,12 @@
                             <?php
 
                             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                                $buscado = $_POST["buscado"];
-                                $sql = "SELECT * FROM pisos WHERE calle LIKE '%$buscado%'";
-
-                                $result = mysqli_query($conexion, $sql);
+                                $buscado = "%{$_POST['buscado']}%";
+                                $sql = "SELECT * FROM pisos WHERE calle LIKE ?";
+                                $stmt = mysqli_prepare($conexion, $sql);
+                                mysqli_stmt_bind_param($stmt, "s", $buscado);
+                                mysqli_stmt_execute($stmt);
+                                $result = mysqli_stmt_get_result($stmt);
 
                                 for ($i = 0; $i < mysqli_num_rows($result); $i++) {
                                     $fila = mysqli_fetch_assoc($result);

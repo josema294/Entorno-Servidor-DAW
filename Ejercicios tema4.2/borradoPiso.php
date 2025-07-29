@@ -21,8 +21,10 @@
         if (isset($_POST['Codigo_piso'])) {
             $codigoPiso = $_POST['Codigo_piso'];
 
-            $sql = "DELETE FROM pisos WHERE Codigo_piso = '$codigoPiso'";
-            $resultado = mysqli_query($conexion, $sql);
+            $sql = "DELETE FROM pisos WHERE Codigo_piso = ?";
+            $stmt = mysqli_prepare($conexion, $sql);
+            mysqli_stmt_bind_param($stmt, "s", $codigoPiso);
+            $resultado = mysqli_stmt_execute($stmt);
 
             if ($resultado) {
                 $mensaje = "Borrado del piso realizado con éxito.";

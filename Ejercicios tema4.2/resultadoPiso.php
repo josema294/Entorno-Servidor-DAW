@@ -36,15 +36,17 @@
         if ($id != null) {
             $codigoPiso = $_POST['Codigo_piso'];
             // Actualizar piso existente
-            
-            $sql = "UPDATE pisos SET calle = '$calle', numero = '$numero', piso = '$piso', puerta = '$puerta', cp = '$cp', metros = '$metros', zona = '$zona', precio = '$precio', imagen = '$imagen' WHERE Codigo_piso = '$codigoPiso'";
+            $sql = "UPDATE pisos SET calle = ?, numero = ?, piso = ?, puerta = ?, cp = ?, metros = ?, zona = ?, precio = ?, imagen = ? WHERE Codigo_piso = ?";
+            $stmt = mysqli_prepare($conexion, $sql);
+            mysqli_stmt_bind_param($stmt, "sisssissss", $calle, $numero, $piso, $puerta, $cp, $metros, $zona, $precio, $imagen, $codigoPiso);
         } else {
             // Insertar nuevo piso
-            
-            $sql = "INSERT INTO pisos (calle, numero, piso, puerta, cp, metros, zona, precio, imagen, usuario_id) VALUES ('$calle', '$numero', '$piso', '$puerta', '$cp', '$metros', '$zona', '$precio', '$imagen', '$usuarioId')";
+            $sql = "INSERT INTO pisos (calle, numero, piso, puerta, cp, metros, zona, precio, imagen, usuario_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $stmt = mysqli_prepare($conexion, $sql);
+            mysqli_stmt_bind_param($stmt, "sisssisssi", $calle, $numero, $piso, $puerta, $cp, $metros, $zona, $precio, $imagen, $usuarioId);
         }
 
-        mysqli_query($conexion, $sql);
+        mysqli_stmt_execute($stmt);
     }
     ?>
     <div class="container mt-5">
