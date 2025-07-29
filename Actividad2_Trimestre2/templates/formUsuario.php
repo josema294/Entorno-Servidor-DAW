@@ -1,8 +1,8 @@
 <?php
 include("./config/db.php");
 
-DataBaseConection::openConection();
-$conexion = DataBaseConection::getConexion();
+DataBaseConnection::openConection();
+$conexion = DataBaseConnection::getConexion();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 

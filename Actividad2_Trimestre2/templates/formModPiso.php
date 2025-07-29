@@ -12,8 +12,8 @@ if (isset ($_GET["modificarPiso"])) {
     $idPiso = $_GET["modificarPiso"];
     //Seleccionamos el piso que queremos modificar
 
-    DataBaseConection::openConection();
-    $conexion = DataBaseConection::getConexion();
+    DataBaseConnection::openConection();
+    $conexion = DataBaseConnection::getConexion();
 
     $sql = "SELECT * FROM pisos where Codigo_piso= $idPiso";
     $result = mysqli_query($conexion,$sql);

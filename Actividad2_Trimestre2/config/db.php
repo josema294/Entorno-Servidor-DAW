@@ -1,40 +1,47 @@
 <?php
 
-final class DataBaseConection
+final class DatabaseConnection
 {
+    // 1. Declara las propiedades sin valor inicial
+    private static $servidor;
+    private static $usuario;
+    private static $password;
+    private static $database;
+    private static $conexion = null;
 
-//Datos
-private static $servername = "sql108.infinityfree.com";
-private static $username = "if0_36061776";
-private static $password = "YTl2gJAD7Lt";
-private static $database = "if0_36061776_inmobiliaria";
-private static $conexion = null;
+    public static function getConnection()
+    {
+        return self::$conexion;
+    }
 
-public static function getConexion (){
-    return self::$conexion;
+    public static function openConnection()
+    {
+        if (self::$conexion !== null) {
+            return;
+        }
+
+        // 2. Asigna los valores desde getenv() aquí, en tiempo de ejecución
+        self::$servidor = getenv('DB_HOST') ?? 'localhost';
+        self::$usuario  = getenv('DB_USER') ?? 'root';
+        self::$password = getenv('DB_PASS') ?? '';
+        self::$database = getenv('DB_NAME') ?? 'inmobiliaria';
+
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+        try {
+            self::$conexion = new mysqli(self::$servidor, self::$usuario, self::$password, self::$database);
+            self::$conexion->set_charset('utf8mb4');
+        } catch (mysqli_sql_exception $e) {
+            error_log("Error de conexión a la BD: " . $e->getMessage());
+            throw new mysqli_sql_exception("No se pudo conectar a la base de datos.");
+        }
+    }
+
+    public static function closeConnection()
+    {
+        if (self::$conexion !== null) {
+            self::$conexion->close();
+            self::$conexion = null;
+        }
+    }
 }
-
-public static function openConection() : bool{
-    
-    self::$conexion = new mysqli(self::$servername, self::$username, self::$password, self::$database);
-
-    if (self::$conexion->connect_error) {
-        die("Conexión fallida: " . self::$conexion->connect_error);
-    } 
-    return true;
-}
-
-public static function closeConection() {
-  if (self::$conexion == null) {
-    return "No hay conexion activa";
-  }else{
-    mysqli_close(self::$conexion);
-    return "No hay conexion activa";
-  }
-}
-
-    
-}
-
-?>
-

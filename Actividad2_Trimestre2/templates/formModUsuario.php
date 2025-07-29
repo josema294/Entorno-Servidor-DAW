@@ -4,8 +4,8 @@ include( "./config/db.php");
 
 
 
-DataBaseConection::openConection();
-$conexion = DataBaseConection::getConexion();
+DataBaseConnection::openConection();
+$conexion = DataBaseConnection::getConexion();
 
 //Para acceder a el id cuando no estoy en el ambito local creo idGlobal
 

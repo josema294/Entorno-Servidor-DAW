@@ -54,8 +54,8 @@
     $modoImpresion = ""; //Define si se van a imprimir pisos o usuarios ya que tienen plantillas diferentes
 
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
-        DataBaseConection::openConection();
-        $conexion =  DataBaseConection::getConexion();
+        DataBaseConnection::openConection();
+        $conexion =  DataBaseConnection::getConexion();
 
         //Distinguimos si la busqueda es de casa o usuario
 

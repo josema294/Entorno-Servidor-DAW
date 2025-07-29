@@ -20,8 +20,8 @@ if(isset($_POST["haciendoModificacion"]) ) {
     $imagen = $_POST['imagen'];
     $usuario_id =  $_POST['usuario_id'];
 
-    DataBaseConection::openConection();
-    $conexion = DataBaseConection::getConexion();
+    DataBaseConnection::openConection();
+    $conexion = DataBaseConnection::getConexion();
     $query = "UPDATE `pisos` SET 
     `Codigo_piso` = " . $idPiso . ",
     `calle` = '" . $calle . "',

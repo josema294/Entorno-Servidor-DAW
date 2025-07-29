@@ -1,13 +1,9 @@
 <?php
-include("./config/db.php");
+require_once __DIR__ . '/../config/db.php'; // Ruta corregida y más robusta
 
-if (DataBaseConection::getConexion() != null) {
-    $conexion = DataBaseConection::getConexion();
-}
-else {
-    DataBaseConection::openConection();
-    $conexion = DataBaseConection::getConexion();
-}
+// La lógica de conexión es más simple: getConnection se encarga de todo.
+DatabaseConnection::openConnection();
+$conexion = DatabaseConnection::getConnection();
 
 //Vemos si somos comprador con permisos de compra
 

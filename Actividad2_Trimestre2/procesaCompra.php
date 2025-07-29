@@ -18,8 +18,8 @@
 
         if (isset($_POST["precio_final"])) {
             //Si se ha enviado un precio final se ha hecho la compra, por lo que lo que hacemos es guardar los datos en la base de datos
-            DataBaseConection::openConection();
-            $conexion = (DataBaseConection::getConexion())? DataBaseConection::getConexion() : null;
+            DataBaseConnection::openConection();
+            $conexion = (DataBaseConnection::getConexion())? DataBaseConnection::getConexion() : null;
             $sql = "INSERT INTO `comprados`(`usuario_comprador`, `Codigo_piso`, `Precio_final`) VALUES ($idComprador,$idPiso,$precioFinal)";
             
             mysqli_query($conexion,$sql);
